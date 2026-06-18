@@ -1,4 +1,4 @@
-// Engineer Kit flowchart data - skill-based commands (/git skill, /worktree, separated Docs/Designs)
+// Vit Engine flowchart data - skill-based commands (/git skill, /worktree, separated Docs/Designs)
 import { type FlowchartNode, type FlowchartEdge, type FlowchartPath, generatePath } from "./flowchart-types";
 
 const stableNodes: FlowchartNode[] = [
@@ -86,7 +86,7 @@ const stableNodes: FlowchartNode[] = [
   {
     id: 'cmd-bootstrap',
     type: 'command',
-    label: '/ck:bootstrap',
+    label: '/vit:bootstrap',
     description: 'Full project initialization ⚡⚡⚡⚡⚡',
     position: { x: 90, y: 280 }
   },
@@ -95,14 +95,14 @@ const stableNodes: FlowchartNode[] = [
   {
     id: 'cmd-docs-init',
     type: 'command',
-    label: '/ck:docs init',
+    label: '/vit:docs init',
     description: 'Analyze codebase, create docs ⚡⚡⚡⚡',
     position: { x: 120, y: 400 }
   },
   {
     id: 'cmd-scout',
     type: 'command',
-    label: '/ck:scout',
+    label: '/vit:scout',
     description: 'Explore codebase structure',
     position: { x: 240, y: 400 }
   },
@@ -111,28 +111,28 @@ const stableNodes: FlowchartNode[] = [
   {
     id: 'cmd-brainstorm',
     type: 'command',
-    label: '/ck:brainstorm',
+    label: '/vit:brainstorm',
     description: 'Collaborative ideation ⚡⚡',
     position: { x: 380, y: 400 }
   },
   {
     id: 'cmd-cook',
     type: 'command',
-    label: '/ck:cook',
+    label: '/vit:cook',
     description: 'All-in-one: research → implement ⚡⚡⚡',
     position: { x: 520, y: 600 }
   },
   {
     id: 'cmd-plan',
     type: 'command',
-    label: '/ck:plan',
+    label: '/vit:plan',
     description: 'Create detailed plan ⚡⚡⚡',
     position: { x: 380, y: 520 }
   },
   {
     id: 'cmd-cook-plan',
     type: 'command',
-    label: '/ck:cook @plan.md',
+    label: '/vit:cook @plan.md',
     description: 'Implement plan step by step ⚡⚡⚡',
     position: { x: 380, y: 640 }
   },
@@ -141,44 +141,44 @@ const stableNodes: FlowchartNode[] = [
   {
     id: 'cmd-debug',
     type: 'command',
-    label: '/ck:debug',
+    label: '/vit:debug',
     description: 'Find root cause ⚡',
     position: { x: 720, y: 400 }
   },
   {
     id: 'cmd-fix',
     type: 'command',
-    label: '/ck:fix',
+    label: '/vit:fix',
     description: 'Smart routing to fix commands ⚡⚡',
     position: { x: 650, y: 500 }
   },
   {
     id: 'cmd-test',
     type: 'command',
-    label: '/ck:test',
+    label: '/vit:test',
     description: 'Run tests to verify fix ⚡⚡',
     position: { x: 650, y: 600 }
   },
 
-  // Command nodes - Git Ops (v2.5.0+ uses /ck:git skill)
+  // Command nodes - Git Ops (v2.5.0+ uses /vit:git skill)
   {
     id: 'cmd-git-skill',
     type: 'command',
-    label: '/ck:git',
+    label: '/vit:git',
     description: 'Support arguments: cm, cp, pr, merge',
     position: { x: 790, y: 280 }
   },
   {
     id: 'cmd-worktree',
     type: 'command',
-    label: '/ck:worktree',
+    label: '/vit:worktree',
     description: 'Create isolated worktree',
     position: { x: 870, y: 360 }
   },
   {
     id: 'cmd-code-review',
     type: 'command',
-    label: '/ck:code-review',
+    label: '/vit:code-review',
     description: 'Review code & pull requests',
     position: { x: 790, y: 440 }
   },
@@ -187,7 +187,7 @@ const stableNodes: FlowchartNode[] = [
   {
     id: 'cmd-docs',
     type: 'command',
-    label: '/ck:docs',
+    label: '/vit:docs',
     description: 'init | update | summarize',
     position: { x: 900, y: 280 }
   },
@@ -196,21 +196,21 @@ const stableNodes: FlowchartNode[] = [
   {
     id: 'cmd-frontend-design',
     type: 'command',
-    label: '/ck:frontend-design',
+    label: '/vit:frontend-design',
     description: 'UI/UX design skill',
     position: { x: 990, y: 280 }
   },
   {
     id: 'cmd-remotion',
     type: 'command',
-    label: '/ck:remotion',
+    label: '/vit:remotion',
     description: 'Video design & animation',
     position: { x: 1100, y: 280 }
   },
   {
     id: 'cmd-threejs',
     type: 'command',
-    label: '/ck:threejs',
+    label: '/vit:threejs',
     description: '3D design & visualization',
     position: { x: 1100, y: 360 }
   },
@@ -219,8 +219,8 @@ const stableNodes: FlowchartNode[] = [
   {
     id: 'cmd-simplify',
     type: 'command',
-    label: '/ck:simplify',
-    description: 'Clean up and refactor code ⚡⚡',
+    label: '/vit:code-review',
+    description: 'Review và refactor code ⚡⚡',
     position: { x: 520, y: 720 }
   }
 ];
@@ -477,7 +477,7 @@ const stablePaths: FlowchartPath[] = [
     name: 'Start New Project',
     nodes: ['start', 'new-project', 'cmd-bootstrap'],
     edges: ['e-start-new-project', 'e-new-project-bootstrap'],
-    command: '/ck:bootstrap',
+    command: '/vit:bootstrap',
     description: 'Full project initialization: git, tech stack, planning, design, implementation',
     color: 'amber'
   },
@@ -488,7 +488,7 @@ const stablePaths: FlowchartPath[] = [
     name: 'Join Undocumented Project',
     nodes: ['start', 'existing-project', 'has-docs', 'cmd-docs-init'],
     edges: ['e-start-existing-project', 'e-existing-project-hasdocs', 'e-hasdocs-docsinit'],
-    command: '/ck:docs init',
+    command: '/vit:docs init',
     description: 'Analyze existing codebase and create documentation',
     color: 'cyan'
   },
@@ -497,7 +497,7 @@ const stablePaths: FlowchartPath[] = [
     name: 'Explore Documented Project',
     nodes: ['start', 'existing-project', 'has-docs', 'cmd-scout'],
     edges: ['e-start-existing-project', 'e-existing-project-hasdocs', 'e-hasdocs-scout'],
-    command: '/ck:scout',
+    command: '/vit:scout',
     description: 'Fast parallel codebase search to find relevant files',
     color: 'cyan'
   },
@@ -508,7 +508,7 @@ const stablePaths: FlowchartPath[] = [
     name: 'Fast Implementation',
     nodes: ['start', 'build-feature', 'know-what', 'speed-safety', 'cmd-cook'],
     edges: ['e-start-build-feature', 'e-build-feature-know', 'e-know-speed-safety', 'e-speed-cook'],
-    command: '/ck:cook',
+    command: '/vit:cook',
     description: 'All-in-one: research → plan → implement → test → review (speed focus)',
     color: 'emerald'
   },
@@ -517,8 +517,8 @@ const stablePaths: FlowchartPath[] = [
     name: 'Safe Planning',
     nodes: ['start', 'build-feature', 'know-what', 'speed-safety', 'cmd-plan'],
     edges: ['e-start-build-feature', 'e-build-feature-know', 'e-know-speed-safety', 'e-safety-plan'],
-    command: '/ck:plan',
-    description: 'Plan → Refine & Approve → /clear → /ck:cook @plan.md (safety focus)',
+    command: '/vit:plan',
+    description: 'Plan → Refine & Approve → /clear → /vit:cook @plan.md (safety focus)',
     color: 'purple'
   },
   {
@@ -526,7 +526,7 @@ const stablePaths: FlowchartPath[] = [
     name: 'Implement Plan',
     nodes: ['cmd-plan', 'cmd-cook-plan'],
     edges: ['e-plan-cook-plan'],
-    command: '/ck:cook @plan.md',
+    command: '/vit:cook @plan.md',
     description: 'Implement an approved plan step by step (after /clear)',
     color: 'blue'
   },
@@ -535,8 +535,8 @@ const stablePaths: FlowchartPath[] = [
     name: 'Brainstorm Ideas',
     nodes: ['start', 'build-feature', 'know-what', 'cmd-brainstorm', 'cmd-plan'],
     edges: ['e-start-build-feature', 'e-build-feature-know', 'e-know-brainstorm', 'e-brainstorm-plan'],
-    command: '/ck:brainstorm',
-    description: 'Ideation when you don\'t know what to build (then → /ck:plan → /clear → /ck:cook @plan.md)',
+    command: '/vit:brainstorm',
+    description: 'Ideation when you don\'t know what to build (then → /vit:plan → /clear → /vit:cook @plan.md)',
     color: 'violet'
   },
 
@@ -546,7 +546,7 @@ const stablePaths: FlowchartPath[] = [
     name: 'Debug Issue',
     nodes: ['start', 'fix-something', 'know-issue', 'cmd-debug'],
     edges: ['e-start-fix-something', 'e-fix-something-know', 'e-know-debug'],
-    command: '/ck:debug',
+    command: '/vit:debug',
     description: 'Analyze → Find root cause (when you don\'t know what\'s wrong)',
     color: 'orange'
   },
@@ -555,7 +555,7 @@ const stablePaths: FlowchartPath[] = [
     name: 'Fix Known Issue',
     nodes: ['start', 'fix-something', 'know-issue', 'cmd-fix'],
     edges: ['e-start-fix-something', 'e-fix-something-know', 'e-know-fix'],
-    command: '/ck:fix',
+    command: '/vit:fix',
     description: 'Intelligent router to specialized fix commands (when you know the issue)',
     color: 'red'
   },
@@ -564,7 +564,7 @@ const stablePaths: FlowchartPath[] = [
     name: 'Fix & Test',
     nodes: ['start', 'fix-something', 'know-issue', 'cmd-fix', 'cmd-test'],
     edges: ['e-start-fix-something', 'e-fix-something-know', 'e-know-fix', 'e-fix-test'],
-    command: '/ck:fix → /ck:test',
+    command: '/vit:fix → /vit:test',
     description: 'Fix issue then verify with tests',
     color: 'green'
   },
@@ -575,7 +575,7 @@ const stablePaths: FlowchartPath[] = [
     name: 'Git Operations',
     nodes: ['start', 'git-ops', 'cmd-git-skill'],
     edges: ['e-start-git-ops', 'e-git-skill'],
-    command: '/ck:git',
+    command: '/vit:git',
     description: 'Support arguments: cm, cp, pr, merge',
     color: 'indigo'
   },
@@ -584,7 +584,7 @@ const stablePaths: FlowchartPath[] = [
     name: 'Parallel Development',
     nodes: ['start', 'git-ops', 'cmd-worktree'],
     edges: ['e-start-git-ops', 'e-git-worktree'],
-    command: '/ck:worktree',
+    command: '/vit:worktree',
     description: 'Create isolated worktree for working on multiple features simultaneously',
     color: 'indigo'
   },
@@ -593,7 +593,7 @@ const stablePaths: FlowchartPath[] = [
     name: 'PR Code Review',
     nodes: ['start', 'git-ops', 'cmd-code-review'],
     edges: ['e-start-git-ops', 'e-git-code-review'],
-    command: '/ck:code-review',
+    command: '/vit:code-review',
     description: 'Review code & pull requests with scout-based edge case detection',
     color: 'indigo'
   },
@@ -604,7 +604,7 @@ const stablePaths: FlowchartPath[] = [
     name: 'Documentation',
     nodes: ['start', 'docs-design', 'cmd-docs'],
     edges: ['e-start-docs-design', 'e-docs-design-docs'],
-    command: '/ck:docs',
+    command: '/vit:docs',
     description: 'Documentation commands: init, update, summarize',
     color: 'amber'
   },
@@ -615,7 +615,7 @@ const stablePaths: FlowchartPath[] = [
     name: 'UI/UX Design',
     nodes: ['start', 'designs', 'cmd-frontend-design'],
     edges: ['e-start-designs', 'e-designs-frontend'],
-    command: '/ck:frontend-design',
+    command: '/vit:frontend-design',
     description: 'Create beautiful UI/UX designs with modern patterns',
     color: 'pink'
   },
@@ -624,7 +624,7 @@ const stablePaths: FlowchartPath[] = [
     name: 'Video Design',
     nodes: ['start', 'designs', 'cmd-remotion'],
     edges: ['e-start-designs', 'e-designs-remotion'],
-    command: '/ck:remotion',
+    command: '/vit:remotion',
     description: 'Create video animations and motion graphics',
     color: 'pink'
   },
@@ -633,7 +633,7 @@ const stablePaths: FlowchartPath[] = [
     name: '3D Design',
     nodes: ['start', 'designs', 'cmd-threejs'],
     edges: ['e-start-designs', 'e-designs-threejs'],
-    command: '/ck:threejs',
+    command: '/vit:threejs',
     description: 'Create 3D visualizations and interactive experiences',
     color: 'pink'
   },
@@ -644,7 +644,7 @@ const stablePaths: FlowchartPath[] = [
     name: 'Cook & Simplify',
     nodes: ['start', 'build-feature', 'know-what', 'speed-safety', 'cmd-cook', 'cmd-simplify'],
     edges: ['e-start-build-feature', 'e-build-feature-know', 'e-know-speed-safety', 'e-speed-cook', 'e-cook-simplify'],
-    command: '/ck:cook → /ck:simplify',
+    command: '/vit:cook → /vit:simplify',
     description: 'Fast implementation then code cleanup',
     color: 'teal'
   }

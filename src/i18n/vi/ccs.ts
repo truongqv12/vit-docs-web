@@ -129,9 +129,9 @@ export const ccs = {
   'ccs.guide.feature4_desc': 'Xác thực không cần cấu hình cho các mô hình được hỗ trợ:',
   'ccs.guide.feature4_auto': 'OAuth tương tác',
   'ccs.guide.feature4_save': 'Lưu tokens',
-  // ClaudeKit Integration Section
-  'ccs.guide.claudekit_title': 'Tích Hợp với ClaudeKit',
-  'ccs.guide.claudekit_desc': 'CCS hoạt động mượt mà với các lệnh ClaudeKit. Dùng Claude cho việc lập kế hoạch phức tạp và GLM cho thực thi đơn giản:',
+  // Vit Engine Integration Section
+  'ccs.guide.claudekit_title': 'Tích Hợp với Vit Engine',
+  'ccs.guide.claudekit_desc': 'CCS hoạt động mượt mà với các lệnh Vit Engine. Dùng Claude cho việc lập kế hoạch phức tạp và GLM cho thực thi đơn giản:',
   'ccs.guide.workflow_title': 'Quy Trình Đề Xuất',
   'ccs.guide.workflow_step1': 'Lập kế hoạch với Claude',
   'ccs.guide.workflow_step2': 'Thực hiện với GLM (tiết kiệm chi phí)',
@@ -230,7 +230,7 @@ export const ccs = {
   // Maintenance Section
   'ccs.guide.maintenance_title': 'Bảo Trì',
   'ccs.guide.sync_title': 'Đồng Bộ Dữ Liệu Chia Sẻ',
-  'ccs.guide.sync_desc': 'Đồng bộ các cập nhật delegation commands và skills mới nhất từ ClaudeKit sang CCS:',
+  'ccs.guide.sync_desc': 'Đồng bộ các cập nhật delegation commands và skills mới nhất từ Vit Engine sang CCS:',
   // .ck.json Configuration Section
   'ccs.guide.ck_json_title': 'Cấu Hình .ck.json',
   'ccs.guide.ck_json_desc': 'Tất cả các cài đặt có sẵn cho file cấu hình <code class="font-mono text-xs bg-slate-100 dark:bg-slate-800 px-1 rounded">.ck.json</code>.',
@@ -352,7 +352,7 @@ export const ccs = {
   'ccs.guide.gemini_multiaccount_title': 'Quản Lý Nhiều Tài Khoản',
   'ccs.guide.gemini_multiaccount_desc': 'Quản lý nhiều tài khoản Google cho Gemini:',
   'ccs.guide.codex_config_title': 'Cấu Hình Codex',
-  'ccs.guide.codex_config_desc': 'Xác thực bằng OpenAI OAuth. Để setup nâng cao Codex + ClaudeKit, xem <a href="/vi/guides/ck-with-codex" class="text-blue-600 dark:text-blue-400 underline font-medium">hướng dẫn CK with Codex</a>.',
+  'ccs.guide.codex_config_desc': 'Xác thực bằng OpenAI OAuth. Để setup nâng cao Codex + Vit Engine, xem <a href="/vi/guides/ck-with-codex" class="text-blue-600 dark:text-blue-400 underline font-medium">hướng dẫn Vit Engine với Codex</a>.',
   'ccs.guide.codex_paid_note': 'Provider này yêu cầu tài khoản OpenAI trả phí. Tài khoản miễn phí không được hỗ trợ - bạn cần đăng ký các model của OpenAI.',
   'ccs.guide.codex_step1_title': 'Bước 1: Xác Thực',
   'ccs.guide.codex_browser_note': 'Một cửa sổ trình duyệt sẽ mở để xác thực OpenAI. Hoàn tất quá trình đăng nhập trong trình duyệt của bạn.',
@@ -488,7 +488,7 @@ export const ccs = {
   'ccs.cheatsheet.bar_stop': 'Dừng server nền',
   'ccs.cheatsheet.bar_uninstall': 'Gỡ CCS Bar.app và version pin',
   // Best Workflows Section
-  'ccs.guide.workflows_title': 'Workflow hiệu quả với CCS & ClaudeKit',
+  'ccs.guide.workflows_title': 'Workflow hiệu quả với CCS & Vit Engine',
   'ccs.guide.workflows_desc': 'Bộ recipe đã được chọn lọc để route task qua nhiều provider và runtime — tối ưu chi phí, chiều sâu hoặc context.',
   'ccs.guide.workflows_hint': 'Kết hợp provider theo từng bước: dùng model reasoning mạnh (Claude / Codex) cho plan & review, dùng coder rẻ (GLM / Qwen) cho phần implement & test khối lượng lớn. Chuyển runtime (<code class="text-purple-600 dark:text-purple-400">ccsd</code>, <code class="text-purple-600 dark:text-purple-400">ccsx</code>) khi cần agent khác.',
   'ccs.guide.workflow_cost_title': 'Full cycle tối ưu chi phí',

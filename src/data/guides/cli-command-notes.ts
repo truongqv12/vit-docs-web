@@ -3,11 +3,11 @@ import type { Language } from '@/i18n';
 const noteText = {
   '--kit': ['Choose engineer, marketing, or all kit content.', 'Chọn bộ engineer, marketing, hoặc all.'],
   '--yes': ['Skip confirmation prompts for scripted runs.', 'Bỏ qua xác nhận khi chạy tự động.'],
-  '--global': ['Apply to the user-level ClaudeKit install.', 'Áp dụng cho cài đặt ClaudeKit cấp user.'],
+  '--global': ['Apply to the user-level Vit Engine install.', 'Áp dụng cho cài đặt Vit Engine cấp user.'],
   '--fresh': ['Reinstall cleanly instead of merging existing files.', 'Cài lại sạch thay vì merge file hiện có.'],
   '--install-skills': ['Install bundled skills during setup.', 'Cài kèm các skills trong lúc setup.'],
   '--beta': ['Use beta channel content or release.', 'Dùng nội dung hoặc release beta.'],
-  '--sync': ['Sync local ClaudeKit files with the selected kit.', 'Đồng bộ file ClaudeKit local với kit đã chọn.'],
+  '--sync': ['Sync local Vit Engine files with the selected kit.', 'Đồng bộ file Vit Engine local với kit đã chọn.'],
   '--use-git': ['Initialize the new project with Git metadata.', 'Khởi tạo project mới với Git metadata.'],
   '--check': ['Check available updates without applying them.', 'Kiểm tra update nhưng chưa áp dụng.'],
   '--dev': ['Use development channel behavior where supported.', 'Dùng chế độ dev nếu command hỗ trợ.'],
@@ -30,7 +30,7 @@ const noteText = {
   '--list': ['List available or installed items.', 'Liệt kê item có sẵn hoặc đã cài.'],
   '--uninstall': ['Remove installed content from the target.', 'Gỡ nội dung đã cài khỏi target.'],
   '--search': ['Filter catalog results by query text.', 'Lọc catalog theo từ khóa tìm kiếm.'],
-  '--catalog': ['Read from the bundled ClaudeKit catalog.', 'Đọc từ catalog ClaudeKit đi kèm.'],
+  '--catalog': ['Read from the bundled Vit Engine catalog.', 'Đọc từ catalog Vit Engine đi kèm.'],
   '--installed': ['Show only installed items.', 'Chỉ hiển thị item đã cài.'],
   '--install': ['Install migrated content on the target provider.', 'Cài nội dung đã migrate vào provider đích.'],
   '--reconcile': ['Compare source and target before changing files.', 'So sánh source và target trước khi sửa file.'],
@@ -160,13 +160,13 @@ const commandNotes: Record<string, [string, string][]> = {
   ],
   'ck update': [
     ['<code>--beta</code> is deprecated — use <code>-d, --dev</code> instead.', '<code>--beta</code> đã deprecated — dùng <code>-d, --dev</code> thay thế.'],
-    ['Updates CLI only. Use <code>ck init</code> to update kit content.', 'Chỉ update CLI. Dùng <code>ck init</code> để update nội dung kit.'],
+    ['Updates CLI only. Use <code>vit init</code> to update kit content.', 'Chỉ update CLI. Dùng <code>vit init</code> để update nội dung kit.'],
   ],
   'ck skills': [
     ['<code>--installed</code> shows two sections: active Claude Code skills (from <code>.claude/skills/</code>) and registry-managed agent installations.', '<code>--installed</code> hiện 2 phần: skills Claude Code active (từ <code>.claude/skills/</code>) và agent installations do registry quản lý.'],
   ],
   'ck config': [
-    ['Bare <code>ck config</code> opens dashboard (= <code>ck config ui</code>).', '<code>ck config</code> không argument sẽ mở dashboard (= <code>ck config ui</code>).'],
+    ['Bare <code>vit config</code> opens dashboard (= <code>vit config ui</code>).', '<code>vit config</code> không argument sẽ mở dashboard (= <code>vit config ui</code>).'],
   ],
   'ck migrate': [
     ['<code>--install</code> and <code>--reconcile</code> are mutually exclusive.', '<code>--install</code> và <code>--reconcile</code> loại trừ lẫn nhau.'],
@@ -174,7 +174,7 @@ const commandNotes: Record<string, [string, string][]> = {
     ['<code>-g</code> now correctly resolves SOURCE to global scope (fixed in v4.2.0). Older versions read CWD even with <code>-g</code>.', '<code>-g</code> giờ đã resolve đúng SOURCE scope global (fix từ v4.2.0). Bản cũ hơn đọc CWD dù có <code>-g</code>.'],
   ],
   'ck backups': [
-    ['Covers CK-managed files only — not the full <code>~/.claude/</code> directory.', 'Chỉ chứa file do CK quản lý — không phải toàn bộ <code>~/.claude/</code>.'],
+    ['Covers Vit-managed files only — not the full <code>~/.claude/</code> directory.', 'Chỉ chứa file do Vit quản lý — không phải toàn bộ <code>~/.claude/</code>.'],
   ],
   'ck content': [
     ['<code>approve</code> and <code>reject</code> require a content item <code>&lt;id&gt;</code>.', '<code>approve</code> và <code>reject</code> cần <code>&lt;id&gt;</code> của content item.'],

@@ -16,8 +16,9 @@ const {
   lang = 'vi'
 } = Astro.props;
 
-const fullTitle = `${title} | VividKit`;
-const siteUrl = import.meta.env.PUBLIC_SITE_URL || 'https://vividkit.com';
+// Tên brand đổi sang "Vit" — không để lộ VividKit/ClaudeKit trong meta/SEO
+const fullTitle = `${title} | Vit`;
+const siteUrl = import.meta.env.PUBLIC_SITE_URL || 'http://localhost';
 const fullCanonical = `${siteUrl}${canonical}`;
 const fullOgImage = `${siteUrl}${ogImage}`;
 
@@ -25,7 +26,8 @@ const fullOgImage = `${siteUrl}${ogImage}`;
 const structuredData = {
   '@context': 'https://schema.org',
   '@type': 'SoftwareApplication',
-  name: 'VividKit',
+  // JSON-LD: đổi tên sang Vit
+  name: 'Vit',
   description: description,
   url: siteUrl,
   applicationCategory: 'DeveloperApplication',
@@ -37,7 +39,7 @@ const structuredData = {
   },
   author: {
     '@type': 'Organization',
-    name: 'VividKit',
+    name: 'Vit',
     url: siteUrl,
   },
 };

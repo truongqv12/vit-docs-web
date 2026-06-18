@@ -24,7 +24,7 @@ const betaExtraNodes: FlowchartNode[] = [
   {
     id: 'cmd-llms',
     type: 'command',
-    label: '/ck:llms',
+    label: '/vit:llms',
     description: 'Generate llms.txt files (llmstxt.org)',
     position: { x: 900, y: 440 },
 
@@ -32,7 +32,7 @@ const betaExtraNodes: FlowchartNode[] = [
   {
     id: 'cmd-deploy',
     type: 'command',
-    label: '/ck:deploy',
+    label: '/vit:deploy',
     description: 'Auto-detect & deploy to 15+ platforms ⚡⚡',
     position: { x: 790, y: 520 },
 
@@ -40,7 +40,7 @@ const betaExtraNodes: FlowchartNode[] = [
   {
     id: 'cmd-security-scan-beta',
     type: 'command',
-    label: '/ck:security-scan',
+    label: '/vit:security-scan',
     description: 'Scan for vulnerabilities & secrets ⚡⚡',
     position: { x: 615, y: 440 },
 
@@ -48,7 +48,7 @@ const betaExtraNodes: FlowchartNode[] = [
   {
     id: 'cmd-project-org',
     type: 'command',
-    label: '/ck:project-organization',
+    label: '/vit:project-organization',
     description: 'Standardize file locations & naming ⚡',
     position: { x: 130, y: 520 },
 
@@ -102,7 +102,7 @@ const betaExtraPaths: FlowchartPath[] = [
     name: 'Docs Index',
     nodes: ['start', 'docs-design', 'cmd-llms'],
     edges: ['e-start-docs-design', 'e-docs-llms'],
-    command: '/ck:llms',
+    command: '/vit:llms',
     description: 'Generate llms.txt files following llmstxt.org spec for AI-readable documentation',
     color: 'amber',
 
@@ -112,7 +112,7 @@ const betaExtraPaths: FlowchartPath[] = [
     name: 'Deploy App',
     nodes: ['start', 'git-ops', 'cmd-deploy'],
     edges: ['e-start-git-ops', 'e-git-deploy'],
-    command: '/ck:deploy',
+    command: '/vit:deploy',
     description: 'Auto-detect project type and deploy to 15+ cloud platforms',
     color: 'orange',
 
@@ -122,7 +122,7 @@ const betaExtraPaths: FlowchartPath[] = [
     name: 'Security Audit',
     nodes: ['start', 'fix-something', 'cmd-security-scan-beta'],
     edges: ['e-start-fix-something', 'e-fix-security'],
-    command: '/ck:security-scan',
+    command: '/vit:security-scan',
     description: 'Scan for OWASP vulnerabilities, leaked secrets, and insecure patterns',
     color: 'red',
 
@@ -132,7 +132,7 @@ const betaExtraPaths: FlowchartPath[] = [
     name: 'Organize Project',
     nodes: ['start', 'existing-project', 'cmd-project-org'],
     edges: ['e-start-existing-project', 'e-existing-project-org'],
-    command: '/ck:project-organization',
+    command: '/vit:project-organization',
     description: 'Standardize file locations, naming conventions, and project structure',
     color: 'teal',
 

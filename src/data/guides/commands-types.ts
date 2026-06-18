@@ -19,7 +19,7 @@ export interface CommandItem {
   replacedCommand?: string;
   // Beta syntax annotation (for Marketing Kit)
   betaSyntax?: string;
-  // Short beta-only note shown after detail, e.g. "(Beta: /ck:debug)"
+  // Short beta-only note shown after detail, e.g. "(Beta: /vit:debug)"
   betaNote?: string;
   // Mark command as deprecated (shown with strikethrough styling)
   deprecated?: boolean;

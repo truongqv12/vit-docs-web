@@ -13,6 +13,6 @@ export const footerLinks = {
     { label: 'Workflows', href: '/guides/workflows' },
   ],
   community: [
-    { label: 'Discord', href: 'https://claudekit.cc/discord' },
+    { label: 'Discord', href: '#' },
   ],
 };

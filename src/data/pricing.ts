@@ -1,10 +1,10 @@
 export const pricingTiers = [
   {
-    name: 'ClaudeKit Wrapper',
+    name: 'Vit Engine Wrapper',
     price: 0,
-    description: 'Free for all ClaudeKit users',
+    description: 'Free for all Vit Engine users',
     features: [
-      'Visual Interface for ClaudeKit',
+      'Visual Interface for Vit Engine',
       'Auto-update CK Projects',
       'CCS Built-in (Multi-account)',
       'Browse Commands & Skills Visually',

@@ -1,5 +1,5 @@
 ---
-// Purpose-built Quick Ref layout for /ck:plan.
+// Purpose-built Quick Ref layout for /vit:plan.
 // Presents the dense planning workflow as a readable command reference.
 import type { SkillInfographic, ProcessFlowStep } from '@/data/guides/how-ck-works';
 import type { Language } from '@/i18n';
@@ -30,8 +30,8 @@ const ckPlanCliHref = isVi ? '/vi/guides/cli-commands#cli-cmd-ck-plan' : '/guide
 const text = {
   eyebrow: isVi ? 'Tóm tắt nhanh / Lệnh lập plan' : 'Quick Ref / Planning command',
   summary: isVi
-    ? 'Dùng khi brief đã đủ rõ và cần tách thành phases, bước kiểm chứng, và lệnh bàn giao cho /ck:cook.'
-    : 'Use it when the brief is clear enough to split into phases, validation gates, and a clean /ck:cook handoff.',
+    ? 'Dùng khi brief đã đủ rõ và cần tách thành phases, bước kiểm chứng, và lệnh bàn giao cho /vit:cook.'
+    : 'Use it when the brief is clear enough to split into phases, validation gates, and a clean /vit:cook handoff.',
   afterBrainstorm: isVi ? 'Sau brainstorm / khi scope đã rõ' : 'After brainstorm / when scope is clear',
   hardGate: isVi ? 'Gate bắt buộc' : 'Required Gate',
   hardGateItems: isVi
@@ -74,8 +74,8 @@ const text = {
 };
 
 const heroFlow = isVi
-  ? ['Brief rõ', 'Plan phases', 'Validate / red-team', '/ck:cook']
-  : ['Clear brief', 'Plan phases', 'Validate / red-team', '/ck:cook'];
+  ? ['Brief rõ', 'Plan phases', 'Validate / red-team', '/vit:cook']
+  : ['Clear brief', 'Plan phases', 'Validate / red-team', '/vit:cook'];
 
 const ruleCards = [
   {
@@ -263,7 +263,7 @@ const renderInlineCode = (value = '') => value
 
           <div class="shrink-0 rounded-xl border border-emerald-200 bg-emerald-50/90 px-4 py-3 text-left shadow-sm ring-1 ring-emerald-100 dark:border-white/10 dark:bg-slate-950 dark:ring-white/5">
             <p class="font-mono text-[11px] uppercase tracking-wider text-emerald-700/70 dark:text-slate-500">handoff</p>
-            <p class="mt-1 font-mono text-sm font-semibold text-emerald-800 dark:text-emerald-300">/ck:cook {'{absolute-path}'}</p>
+            <p class="mt-1 font-mono text-sm font-semibold text-emerald-800 dark:text-emerald-300">/vit:cook {'{absolute-path}'}</p>
           </div>
         </div>
 

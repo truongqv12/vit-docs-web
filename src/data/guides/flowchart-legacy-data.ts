@@ -204,7 +204,7 @@ const betaNodes: FlowchartNode[] = [
     id: 'cmd-ck-help',
     type: 'command',
     label: '/ck-help',
-    description: 'General ClaudeKit help',
+    description: 'General Vit Engine help',
     position: { x: 1110, y: 400 }
   },
   {
@@ -611,11 +611,11 @@ const betaPaths: FlowchartPath[] = [
   // Need Help paths
   {
     id: 'path-ck-help',
-    name: 'ClaudeKit Help',
+    name: 'Vit Engine Help',
     nodes: ['start', 'need-help', 'help-type', 'cmd-ck-help'],
     edges: ['e-start-need-help', 'e-help-type', 'e-help-ck'],
     command: '/ck-help',
-    description: 'General ClaudeKit documentation and command help',
+    description: 'General Vit Engine documentation and command help',
     color: 'blue'
   },
   {

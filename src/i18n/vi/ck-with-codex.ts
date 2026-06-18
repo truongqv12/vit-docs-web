@@ -1,11 +1,11 @@
-// VI translations - "ClaudeKit x Codex CLI" guide namespace.
+// VI translations - "Vit Engine x Codex CLI" guide namespace — đã rebrand sang Vit Engine
 // Page route: /vi/guides/ck-with-codex
 export const ck_with_codex = {
-  // Hero
-  'ckWithCodex.hero.eyebrow': 'Hướng dẫn ClaudeKit + Codex CLI',
-  'ckWithCodex.hero.title': 'Workflow ClaudeKit trên Codex CLI',
+  // Hero — đổi ClaudeKit → Vit Engine, ck → vit
+  'ckWithCodex.hero.eyebrow': 'Hướng dẫn Vit Engine + Codex CLI',
+  'ckWithCodex.hero.title': 'Workflow Vit Engine trên Codex CLI',
   'ckWithCodex.hero.tldr':
-    'Codex CLI là runtime terminal native của OpenAI. Dùng `ck migrate -a codex` để cài nội dung ClaudeKit vào các vị trí Codex-native, sau đó khởi chạy qua CCS bằng `ccsx`, `ccsx codex`, hoặc `ccsxp` — tất cả mà không cần ghi đè vĩnh viễn config provider của Codex.',
+    'Codex CLI là runtime terminal native của OpenAI. Dùng `vit migrate -a codex` để cài nội dung Vit Engine vào các vị trí Codex-native, sau đó khởi chạy qua CCS bằng `ccsx`, `ccsx codex`, hoặc `ccsxp` — tất cả mà không cần ghi đè vĩnh viễn config provider của Codex.',
 
   // Why CCS
   'ckWithCodex.why.heading': 'Vì sao vẫn cần CCS?',
@@ -33,10 +33,10 @@ export const ck_with_codex = {
   // Architecture
   'ckWithCodex.arch.heading': 'Các mảnh ghép khớp với nhau ra sao',
   'ckWithCodex.arch.intro':
-    '**Hai nhiệm vụ, không chồng chéo.** `ck migrate -a codex` đọc source ClaudeKit và ghi file Codex-native vào vị trí tương ứng. CCS chỉ khởi chạy Codex với target runtime đúng và override provider tạm thời.<br/><br/>**`-g` scope fix (v4.2.0+):** `-g` hiện đọc SOURCE đúng từ global scope. Trên bản cũ hơn 4.2.0, SOURCE vẫn đọc CWD dù có `-g` — nếu bạn còn dùng pre-4.2.0, `cd ~` trước.',
+    '**Hai nhiệm vụ, không chồng chéo.** `vit migrate -a codex` đọc source Vit Engine và ghi file Codex-native vào vị trí tương ứng. CCS chỉ khởi chạy Codex với target runtime đúng và override provider tạm thời.<br/><br/>**`-g` scope fix (v4.2.0+):** `-g` hiện đọc SOURCE đúng từ global scope. Trên bản cũ hơn 4.2.0, SOURCE vẫn đọc CWD dù có `-g` — nếu bạn còn dùng pre-4.2.0, `cd ~` trước.',
   'ckWithCodex.arch.lane1.title': 'Project nguồn (./.claude/)',
-  'ckWithCodex.arch.lane1.desc': '`ck migrate` tìm file source từ repo hiện tại trước, sau đó fallback về `~/.claude/*` khi loại source thiếu ở local.',
-  'ckWithCodex.arch.lane2.title': 'File CK Codex global',
+  'ckWithCodex.arch.lane1.desc': '`vit migrate` tìm file source từ repo hiện tại trước, sau đó fallback về `~/.claude/*` khi loại source thiếu ở local.',
+  'ckWithCodex.arch.lane2.title': 'File Vit Codex global',
   'ckWithCodex.arch.lane2.desc': 'Với `-g`: ghi `~/.codex/{agents,hooks}` + `~/.agents/skills/` + `~/.codex/AGENTS.md`. Commands được lưu dưới dạng skill `source-command-*`, không phải `~/.codex/prompts/*`.<br/><span class="text-slate-500 dark:text-slate-500">Bỏ `-g` để dùng các phiên bản project-local dưới `.codex/*` và `.agents/skills/*`.</span>',
   'ckWithCodex.arch.lane3.title': 'CLIProxyAPI :8317',
   'ckWithCodex.arch.lane3.desc': 'Proxy HTTP local nhúng trong CCS Runtime.<ul class="list-disc pl-5 mt-2 space-y-1"><li>`ccsx codex` <span class="text-slate-500 dark:text-slate-500">→ qua CCS Runtime, CLIProxy ngầm bên dưới, không cần config thêm</span></li><li>`ccsxp` <span class="text-slate-500 dark:text-slate-500">→ trực tiếp CLIProxy; qua CCS set `CLIPROXY_API_KEY=ccs-internal-managed`, hoặc truyền key riêng nếu tự host</span></li></ul><span class="block mt-2 text-slate-500 dark:text-slate-500">Bỏ qua trong chế độ native auth thuần.</span>',
@@ -47,24 +47,24 @@ export const ck_with_codex = {
   'ckWithCodex.prereq.heading': 'Trước khi bắt đầu',
   'ckWithCodex.prereq.intro': 'Bốn thành phần. CCS lo phần nối; bạn lo phần còn lại.',
   'ckWithCodex.prereq.node.title': 'Node.js 18+',
-  'ckWithCodex.prereq.node.desc': 'Cần cho cả `ck` và `ccs`. Dùng `nvm` nếu bạn xoay nhiều phiên bản.',
+  'ckWithCodex.prereq.node.desc': 'Cần cho cả `vit` và `ccs`. Dùng `nvm` nếu bạn xoay nhiều phiên bản.',
   'ckWithCodex.prereq.codex.title': 'Binary Codex CLI',
   'ckWithCodex.prereq.codex.desc': 'Cài OpenAI Codex CLI theo docs upstream. Cần hỗ trợ flag `-c key=value`.',
   'ckWithCodex.prereq.ccs.title': 'CCS (Claude Code Switch)',
   'ckWithCodex.prereq.ccs.desc': 'Cài qua `npm install -g @kaitranntt/ccs`, sau đó chạy `ccs config`.',
-  'ckWithCodex.prereq.ck.title': 'ClaudeKit (`ck`) CLI',
-  'ckWithCodex.prereq.ck.desc': 'Provider cấp nội dung project. Chạy `ck init` trong repo bạn muốn có skills.',
+  'ckWithCodex.prereq.ck.title': 'Vit CLI (`vit`)',
+  'ckWithCodex.prereq.ck.desc': 'Provider cấp nội dung project. Chạy `vit init` trong repo bạn muốn có skills.',
 
   // Setup walkthrough
   'ckWithCodex.setup.heading': 'Setup trong năm phút',
-  'ckWithCodex.setup.intro': 'Chạy setup máy một lần. Chạy `ck init` trong từng project, sau đó chạy `ck migrate -a codex` từ project mà bạn muốn copy nội dung ClaudeKit vào các vị trí Codex-native. Không có `-g`, ghi sẽ là project-local (`.codex/*`, `.agents/skills/*`); thêm `-g` để ghi global (`~/.codex/*`, `~/.agents/skills/*`).<br/><br/>**Lưu ý phiên bản:** hướng dẫn này theo `claudekit-cli` `v4.2.0+`. Chạy `ck update -y` để cập nhật.',
+  'ckWithCodex.setup.intro': 'Chạy setup máy một lần. Chạy `vit init` trong từng project, sau đó chạy `vit migrate -a codex` từ project mà bạn muốn copy nội dung Vit Engine vào các vị trí Codex-native. Không có `-g`, ghi sẽ là project-local (`.codex/*`, `.agents/skills/*`); thêm `-g` để ghi global (`~/.codex/*`, `~/.agents/skills/*`).<br/><br/>**Lưu ý phiên bản:** hướng dẫn này theo `vit-cli` `v4.2.0+`. Chạy `vit update -y` để cập nhật.',
 
-  'ckWithCodex.setup.step1.title': 'Cài CCS và ClaudeKit',
+  'ckWithCodex.setup.step1.title': 'Cài CCS và Vit CLI',
   'ckWithCodex.setup.step1.badge': 'một lần',
-  'ckWithCodex.setup.step1.desc': 'Đã cài rồi? Cập nhật bằng `ccs update` và `ck update -y`. CCS lo routing; ClaudeKit ship skills và file tương thích prompt cũ.',
-  'ckWithCodex.setup.step1.code': 'npm install -g @kaitranntt/ccs\nnpm install -g claudekit-cli',
+  'ckWithCodex.setup.step1.desc': 'Đã cài rồi? Cập nhật bằng `ccs update` và `vit update -y`. CCS lo routing; Vit Engine ship skills và file tương thích prompt cũ.',
+  'ckWithCodex.setup.step1.code': 'npm install -g @kaitranntt/ccs\nnpm install -g vit-cli',
   'ckWithCodex.setup.step1.hint.label': 'kiểm tra',
-  'ckWithCodex.setup.step1.hint.body': '`ccs --version` · `ck --version`',
+  'ckWithCodex.setup.step1.hint.body': '`ccs --version` · `vit --version`',
 
   'ckWithCodex.setup.step2.title': 'Xác thực Codex qua CCS',
   'ckWithCodex.setup.step2.badge': 'oauth',
@@ -85,54 +85,54 @@ export const ck_with_codex = {
   'ckWithCodex.setup.step3.hint.label': 'thành công',
   'ckWithCodex.setup.step3.hint.body': 'Dòng `Codex Auth` hiển thị `[OK] Authenticated`',
 
-  'ckWithCodex.setup.step4.title': 'Khởi tạo ClaudeKit, sau đó migrate từ project đó',
+  'ckWithCodex.setup.step4.title': 'Khởi tạo Vit Engine, sau đó migrate từ project đó',
   'ckWithCodex.setup.step4.badge': 'migrate',
-  'ckWithCodex.setup.step4.desc': '`ck init` đặt layout source ClaudeKit. `ck migrate -a codex` sau đó copy nội dung đó vào các vị trí Codex-native.',
+  'ckWithCodex.setup.step4.desc': '`vit init` đặt layout source Vit Engine. `vit migrate -a codex` sau đó copy nội dung đó vào các vị trí Codex-native.',
   'ckWithCodex.setup.step4.warning.label': 'quan trọng',
   'ckWithCodex.setup.step4.warning.title': '`-g` scope: đã fix trong v4.2.0+',
   'ckWithCodex.setup.step4.warning.tip': '**v4.2.0+:** `-g` đọc SOURCE đúng từ global scope.<br/>**Pre-4.2.0:** `-g` chỉ đổi destination — chạy `cd ~` trước để căn SOURCE.<br/>Luôn dùng `--dry-run` để xác minh.',
-  'ckWithCodex.setup.step4.code': 'cd your-project\nck init',
+  'ckWithCodex.setup.step4.code': 'cd your-project\nvit init',
   'ckWithCodex.setup.step4.init.label': 'init',
   'ckWithCodex.setup.step4.init.body': 'đặt layout source `.claude/*` trong CWD',
   'ckWithCodex.setup.step4.dryRun.label': 'preview',
   'ckWithCodex.setup.step4.dryRun.body': 'In SOURCE và DESTINATION mà không động vào disk. Xác nhận SOURCE đúng cái bạn muốn copy.',
-  'ckWithCodex.setup.step4.dryRun.code': 'ck migrate -a codex --dry-run',
+  'ckWithCodex.setup.step4.dryRun.code': 'vit migrate -a codex --dry-run',
   'ckWithCodex.setup.step4.apply.label': 'apply',
   'ckWithCodex.setup.step4.apply.body': 'Ghi file Codex-native thật. Chỉ chạy sau khi `--dry-run` trông đúng.',
-  'ckWithCodex.setup.step4.apply.code': 'ck migrate -a codex --yes',
+  'ckWithCodex.setup.step4.apply.code': 'vit migrate -a codex --yes',
 
-  'ckWithCodex.setup.step5.title': 'Khởi chạy Codex với ClaudeKit sẵn sàng',
+  'ckWithCodex.setup.step5.title': 'Khởi chạy Codex với Vit Engine sẵn sàng',
   'ckWithCodex.setup.step5.badge': 'launch',
-  'ckWithCodex.setup.step5.desc': 'Cả hai entrypoint dưới đây đều mở Codex qua CCS. Chọn interactive cho việc `$ck:*`; chọn `exec` cho prompt một lần và script. Dùng `ccsx codex` khi bạn cụ thể muốn quota routing của CCS Runtime.',
+  'ckWithCodex.setup.step5.desc': 'Cả hai entrypoint dưới đây đều mở Codex qua CCS. Chọn interactive cho việc `$vit:*`; chọn `exec` cho prompt một lần và script. Dùng `ccsx codex` khi bạn cụ thể muốn quota routing của CCS Runtime.',
   'ckWithCodex.setup.step5.interactive.label': 'interactive',
   'ckWithCodex.setup.step5.interactive.title': 'Session Codex nhiều lượt',
-  'ckWithCodex.setup.step5.interactive.body': 'Mở REPL Codex native. Tốt nhất cho chuỗi `$ck:plan`, `$ck:cook`, và `$ck:review` khi bạn tiếp tục cùng một context.',
+  'ckWithCodex.setup.step5.interactive.body': 'Mở REPL Codex native. Tốt nhất cho chuỗi `$vit:plan`, `$vit:cook`, và `$vit:vit-code-review` khi bạn tiếp tục cùng một context.',
   'ckWithCodex.setup.step5.interactive.code': 'ccsx codex\n# alias for: ccs codex --target codex',
   'ckWithCodex.setup.step5.exec.label': 'non-interactive',
   'ckWithCodex.setup.step5.exec.title': 'Một lần qua `codex exec`',
   'ckWithCodex.setup.step5.exec.body': 'Stream một prompt non-interactive, in response, thoát. Dùng cho shell pipeline, hook CI, và sửa nhanh.',
-  'ckWithCodex.setup.step5.exec.code': "ccsx codex exec 'draft a $ck:plan for the auth refactor'",
+  'ckWithCodex.setup.step5.exec.code': "ccsx codex exec 'draft a $vit:plan for the auth refactor'",
 
   // Launching (interactive mode + runtime aliases)
   'ckWithCodex.interactive.heading': 'Khởi chạy Codex với CCS',
   'ckWithCodex.interactive.intro':
-    'CCS expose nhiều entrypoint runtime cho Codex CLI native. Nếu bạn bỏ qua phần text prompt, CCS sẽ mở session Codex interactive — tốt nhất cho việc `$ck:*` nhiều lượt vì bạn có thể xem plan, tinh chỉnh hướng dẫn, và tiếp tục trong cùng context Codex.',
-  'ckWithCodex.interactive.prompt.title': 'Gọi workflow ClaudeKit bằng `$...`',
+    'CCS expose nhiều entrypoint runtime cho Codex CLI native. Nếu bạn bỏ qua phần text prompt, CCS sẽ mở session Codex interactive — tốt nhất cho việc `$vit:*` nhiều lượt vì bạn có thể xem plan, tinh chỉnh hướng dẫn, và tiếp tục trong cùng context Codex.',
+  'ckWithCodex.interactive.prompt.title': 'Gọi workflow Vit Engine bằng `$...`',
   'ckWithCodex.interactive.prompt.body':
-    'Sau migration, Codex có thể dùng nội dung CK đã cài. Trong chế độ interactive, chạy một workflow tại một thời điểm và để Codex tiếp tục cùng session.',
+    'Sau migration, Codex có thể dùng nội dung Vit Engine đã cài. Trong chế độ interactive, chạy một workflow tại một thời điểm và để Codex tiếp tục cùng session.',
   'ckWithCodex.interactive.ps.title': 'Prompts vs Skills trong Codex',
   'ckWithCodex.interactive.ps.intro':
-    '`ck migrate -a codex` ghi các thư mục skill tái sử dụng và có thể vẫn ghi file prompt tương thích khi phát hiện commands. Coi output prompt là tương thích cũ, không phải bề mặt workflow chính của Codex.',
+    '`vit migrate -a codex` ghi các thư mục skill tái sử dụng và có thể vẫn ghi file prompt tương thích khi phát hiện commands. Coi output prompt là tương thích cũ, không phải bề mặt workflow chính của Codex.',
   'ckWithCodex.interactive.ps.prompt.label': 'file prompt',
   'ckWithCodex.interactive.ps.prompt.title': 'Không còn được ghi',
   'ckWithCodex.interactive.ps.prompt.body':
-    'Trước đây ở `~/.codex/prompts/*.md`. OpenAI đã deprecate Codex custom prompts, và `claudekit-cli` cũng theo từ `v4.1.0` — commands giờ được migrate dưới dạng skill có scope. Đường dẫn prompts cũ không còn được ghi.',
+    'Trước đây ở `~/.codex/prompts/*.md`. OpenAI đã deprecate Codex custom prompts, và `vit-cli` cũng theo từ `v4.1.0` — commands giờ được migrate dưới dạng skill có scope. Đường dẫn prompts cũ không còn được ghi.',
   'ckWithCodex.interactive.ps.skill.label': 'thư mục skill',
   'ckWithCodex.interactive.ps.skill.title': 'Playbook workflow',
   'ckWithCodex.interactive.ps.skill.body':
     'Nằm ở `~/.agents/skills/skill-name/SKILL.md`. Skills mang theo các hướng dẫn sâu hơn, references, scripts, và rules mà Codex có thể load khi task khớp.',
   'ckWithCodex.interactive.ps.relationship':
-    'Trong Codex CLI hiện tại, `$skill-name` là cách gọi nội dung ClaudeKit đã migrate — đó là bề mặt workflow. `/command-name` được dành riêng cho built-in của Codex CLI (vd. `/init`, `/compact`) và KHÔNG chạy commands CK đã migrate.',
+    'Trong Codex CLI hiện tại, `$skill-name` là cách gọi nội dung Vit Engine đã migrate — đó là bề mặt workflow. `/command-name` được dành riêng cho built-in của Codex CLI (vd. `/init`, `/compact`) và KHÔNG chạy commands Vit đã migrate.',
   'ckWithCodex.interactive.ps.agentScope':
     'Agents Codex project và global độc lập với nhau — không merge hay override. Giữ định nghĩa repo-only trong `.codex/agents/agent-name.toml` và rules repo-only trong `AGENTS.md` của project để chúng đi cùng codebase, không đi theo máy của bạn.',
 
@@ -157,22 +157,22 @@ export const ck_with_codex = {
   'ckWithCodex.aliases.row4.routes': 'Override provider CLIProxy trực tiếp',
   'ckWithCodex.aliases.row4.useWhen': 'Bạn muốn đường đi mỏng hơn, bỏ qua CCS Runtime và nói thẳng với CLIProxy. Nếu đi qua CCS thì set `CLIPROXY_API_KEY=ccs-internal-managed`; nếu tự host CLIProxy riêng thì truyền key tùy ý vào `CLIPROXY_API_KEY`. Pin `CODEX_HOME` về `~/.codex` trừ khi đã set `CCSXP_CODEX_HOME`.',
 
-  // Workflows
+  // Workflows — đổi $ck: → $vit:
   'ckWithCodex.workflows.heading': 'Workflow chạy mượt trên Codex như trên Claude Code',
   'ckWithCodex.workflows.intro':
-    'Các chuỗi ClaudeKit này hoạt động tốt nhất sau khi `ck migrate -a codex` đã cài skills, agents, rules, prompt cũ, và hooks tương thích Codex.',
+    'Các chuỗi Vit Engine này hoạt động tốt nhất sau khi `vit migrate -a codex` đã cài skills, agents, rules, prompt cũ, và hooks tương thích Codex.',
   'ckWithCodex.workflows.flow1.label': 'Vòng build',
   'ckWithCodex.workflows.flow1.title': 'Plan → Cook → Test',
-  'ckWithCodex.workflows.flow1.desc': 'Vòng build quen thuộc. `$ck:plan` lên design, `$ck:cook` code, `$ck:test` kiểm tra. Codex thường chạy nhanh ở bước cook.',
+  'ckWithCodex.workflows.flow1.desc': 'Vòng build quen thuộc. `$vit:plan` lên design, `$vit:cook` code, `$vit:test` kiểm tra. Codex thường chạy nhanh ở bước cook.',
   'ckWithCodex.workflows.flow2.label': 'Vòng triage',
   'ckWithCodex.workflows.flow2.title': 'Fix → Test → Review',
-  'ckWithCodex.workflows.flow2.desc': '`$ck:fix` triage một test hoặc log lỗi, sau đó `$ck:test` chạy lại và `$ck:review` audit diff trước khi commit.',
+  'ckWithCodex.workflows.flow2.desc': '`$vit:fix` triage một test hoặc log lỗi, sau đó `$vit:test` chạy lại và `$vit:vit-code-review` audit diff trước khi commit.',
   'ckWithCodex.workflows.flow3.label': 'Điều tra',
   'ckWithCodex.workflows.flow3.title': 'Scout → Brainstorm → Plan',
-  'ckWithCodex.workflows.flow3.desc': '`$ck:scout` khám phá file, `$ck:brainstorm` cân nhắc trade-off, `$ck:plan` chốt hướng đi. Điều tra thuần, không sửa code.',
+  'ckWithCodex.workflows.flow3.desc': '`$vit:scout` khám phá file, `$vit:brainstorm` cân nhắc trade-off, `$vit:plan` chốt hướng đi. Điều tra thuần, không sửa code.',
   'ckWithCodex.workflows.outro.cmdsLabel': 'Tham khảo',
-  'ckWithCodex.workflows.outro.cmdsTitle': 'Catalog command đầy đủ',
-  'ckWithCodex.workflows.outro.cmdsBody': 'Mọi command `$ck:*`, làm gì, và khi nào nên dùng.',
+  'ckWithCodex.workflows.outro.cmdsTitle': 'Catalog skill đầy đủ',
+  'ckWithCodex.workflows.outro.cmdsBody': 'Mọi skill `$vit:*`, làm gì, và khi nào nên dùng.',
   'ckWithCodex.workflows.outro.flowsLabel': 'Tham khảo',
   'ckWithCodex.workflows.outro.flowsTitle': 'Tất cả công thức workflow',
   'ckWithCodex.workflows.outro.flowsBody': 'Chuỗi dài hơn: ship, debug, retro, và nhiều hơn.',

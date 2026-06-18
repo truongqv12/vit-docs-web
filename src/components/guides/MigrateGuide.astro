@@ -64,14 +64,14 @@ const migrationPhases = [
   <!-- Hero -->
   <div class="text-center space-y-4">
     <h2 class="text-4xl font-bold text-slate-900 dark:text-white tracking-tight">
-      {t('Migrate ClaudeKit to Any Tool', 'Chuyển ClaudeKit sang Công cụ Khác')}
+      {t('Migrate Vit Engine to Any Tool', 'Chuyển Vit Engine sang Công cụ Khác')}
     </h2>
     <p class="text-xl font-medium text-violet-600 dark:text-violet-400">
       {t('One command. All your agents, skills, rules — everywhere.', 'Một lệnh. Toàn bộ agents, skills, rules — ở mọi nơi.')}
     </p>
     <p class="text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto leading-relaxed">
       <code class="font-mono text-sm bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 px-1.5 py-0.5 rounded">ck migrate</code>
-      {t(' lets you take your ClaudeKit setup (agents, commands, skills, config, rules, hooks) and install it into any other AI coding tool with smart reconciliation.', ' giúp bạn mang toàn bộ cấu hình ClaudeKit (agents, commands, skills, config, rules, hooks) sang bất kỳ AI coding tool nào khác, với tính năng so sánh thông minh.')}
+      {t(' lets you take your Vit Engine setup (agents, commands, skills, config, rules, hooks) and install it into any other AI coding tool with smart reconciliation.', ' giúp bạn mang toàn bộ cấu hình Vit Engine (agents, commands, skills, config, rules, hooks) sang bất kỳ AI coding tool nào khác, với tính năng so sánh thông minh.')}
     </p>
   </div>
 
@@ -163,13 +163,13 @@ const migrationPhases = [
       <!-- Step 1 -->
       <div class="relative pl-10">
         <div class="absolute left-0 top-0 w-8 h-8 rounded-full bg-violet-500 text-white flex items-center justify-center font-bold text-sm flex-shrink-0">1</div>
-        <h4 class="font-bold text-slate-900 dark:text-slate-100 mb-2">{t('Make sure ClaudeKit (ck) is installed', 'Đảm bảo đã cài ClaudeKit (ck)')}</h4>
+        <h4 class="font-bold text-slate-900 dark:text-slate-100 mb-2">{t('Make sure Vit Engine (ck) is installed', 'Đảm bảo đã cài Vit Engine (ck)')}</h4>
         <p class="text-sm text-slate-600 dark:text-slate-400 mb-3">
           {t('Open your terminal and check if ck is available:', 'Mở terminal và kiểm tra ck có sẵn không:')}
         </p>
         <div class="bg-slate-900 rounded-lg p-3 font-mono text-sm text-green-400">ck --version</div>
         <p class="text-xs text-slate-500 dark:text-slate-500 mt-2">
-          {t('If you see a version number, you\'re good. If not, visit vividkit.cc/guides to install ClaudeKit first.', 'Nếu thấy số phiên bản, bạn sẵn sàng rồi. Nếu không, hãy vào vividkit.cc/guides để cài ClaudeKit trước.')}
+          {t('If you see a version number, you\'re good. If not, visit vit.dev/guides to install Vit Engine first.', 'Nếu thấy số phiên bản, bạn sẵn sàng rồi. Nếu không, hãy vào vit.dev/guides để cài Vit Engine trước.')}
         </p>
       </div>
 
@@ -376,7 +376,7 @@ const migrationPhases = [
         <span class="inline-flex items-center rounded-full bg-violet-100 dark:bg-violet-900/40 px-1.5 py-0.5 text-[10px] font-semibold text-violet-700 dark:text-violet-300 mr-1">2.0</span>
         {t('Requires Antigravity 2.0 — agents now migrate to .agents/agents.md, and skills/rules/workflows live under .agents/ (plural).', 'Yêu cầu Antigravity 2.0 — agents giờ được migrate sang .agents/agents.md, còn skills/rules/workflows nằm trong .agents/ (số nhiều).')}
         {' '}
-        {t('This support currently ships in the ClaudeKit CLI dev channel only — run', 'Hỗ trợ này hiện chỉ có trên kênh dev của ClaudeKit CLI — chạy')}
+        {t('This support currently ships in the Vit Engine CLI dev channel only — run', 'Hỗ trợ này hiện chỉ có trên kênh dev của Vit Engine CLI — chạy')}
         {' '}
         <code class="bg-slate-100 dark:bg-slate-800/90 text-purple-600 dark:text-purple-400 px-1 py-0.5 rounded text-[10px] font-mono">ck update --dev</code>
         {' '}

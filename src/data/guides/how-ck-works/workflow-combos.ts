@@ -19,8 +19,8 @@ export const workflowCombos: WorkflowCombo[] = [
     category: 'sequential',
     icon: '<path d="M13 3L4 14h7l-1 7 9-11h-7l1-7z"/>',
     accentColor: 'purple',
-    tipEn: 'Run /clear between /ck:plan and /ck:cook to free context',
-    tipVi: 'Chạy /clear giữa /ck:plan và /ck:cook để giải phóng context',
+    tipEn: 'Run /clear between /vit:plan and /vit:cook to free context',
+    tipVi: 'Chạy /clear giữa /vit:plan và /vit:cook để giải phóng context',
   },
 
   {

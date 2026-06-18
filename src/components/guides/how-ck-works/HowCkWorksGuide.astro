@@ -1,5 +1,5 @@
 ---
-// Main wrapper for the "How ClaudeKit Works" interactive workflow visualizer
+// Main wrapper for the "How Vit Engine Works" interactive workflow visualizer
 // Manages Alpine.js shared state for scenario selection, step navigation, and detail panel
 // Supports three views: Individual Skills, Workflow Combos, and Infographic
 import { getLangFromUrl, type Language } from '@/i18n';
@@ -26,13 +26,16 @@ const typeColorsJson = JSON.stringify(stepTypeColors);
 const combosJson = JSON.stringify(workflowCombos);
 // List of scenario IDs that have infographics available
 const infographicIdsJson = JSON.stringify(workflowScenarios.filter(s => hasInfographic(s.id)).map(s => s.id));
+// Lưới an toàn: chỉ giữ id có CẢ scenario lẫn infographic (tránh nav tra id đã đổi tên/đã bỏ)
+const hasScenario = (id: string) => workflowScenarios.some(s => s.id === id);
+const keepRefId = (id: string) => hasInfographic(id) && hasScenario(id);
 const engineerQuickRefIds = [
   'brainstorm',
-  'predict',
-  'plan',
+  'vit-predict',
+  'vit-plan',
   'cook',
   'frontend-design',
-  'code-review',
+  'vit-code-review',
   'review-pr',
   'test',
   'fix',
@@ -41,7 +44,7 @@ const engineerQuickRefIds = [
   'vibe',
   'deploy',
   'bootstrap',
-  'autoresearch',
+  'vit-autoresearch',
   'backend-development',
   'better-auth',
   'context-engineering',
@@ -50,17 +53,16 @@ const engineerQuickRefIds = [
   'agentize',
   'cti-expert',
   'retro',
-  'graphify',
+  'vit-graphify',
   'git',
-  'ghpm',
-  'debug',
+  'vit-debug',
   'agent-browser',
   'ai-multimodal',
   'ask',
-  'security',
+  'vit-security',
   'repomix',
   'llms',
-  'scenario',
+  'vit-scenario',
   'docs',
   'xia',
   'team',
@@ -75,7 +77,7 @@ const engineerQuickRefIds = [
   'gkg',
   'google-adk-python',
   'journal',
-  'loop',
+  'vit-loop',
   'markdown-novel-viewer',
   'mcp-builder',
   'media-processing',
@@ -87,7 +89,6 @@ const engineerQuickRefIds = [
   'project-management',
   'react-best-practices',
   'remotion',
-  'html-video',
   'research',
   'scout',
   'sequential-thinking',
@@ -109,7 +110,7 @@ const engineerQuickRefIds = [
   'excalidraw',
   'plans-kanban',
   'project-organization',
-].filter(hasInfographic);
+].filter(keepRefId);
 const marketerQuickRefIds = [
   'persona',
   'campaign',
@@ -171,7 +172,7 @@ const marketerQuickRefIds = [
   'kanban',
   'skill',
   'use-mcp',
-].filter(hasInfographic);
+].filter(keepRefId);
 const quickRefScenarioGroups = [engineerQuickRefIds, marketerQuickRefIds].filter(group => group.length > 0);
 const quickRefScenarioIds = quickRefScenarioGroups.flat();
 const getCommandNavItem = (id: string) => {
@@ -694,14 +695,14 @@ const getCommandNavItem = (id: string) => {
   {/* Page header */}
   <div class="mb-10 flex flex-col items-center text-center">
     <h1 class="text-4xl font-bold text-gray-900 dark:text-white/90 mb-4 tracking-tight">
-      {isVi ? 'Cách ClaudeKit Hoạt Động' : 'How ClaudeKit Works'}
+      {isVi ? 'Cách Vit Engine Hoạt Động' : 'How Vit Engine Works'}
     </h1>
     
     <div class="w-full space-y-6 text-sm text-gray-700 dark:text-white/70 leading-relaxed">
       <p class="text-base text-gray-800 dark:text-white/80 max-w-3xl mx-auto">
         {isVi
-          ? 'ClaudeKit không phải là một phần mềm độc lập hay IDE mới. Nó là một bộ khung (Framework) nâng cao được tích hợp thẳng vào cấu hình native (.claude) của Claude Code trên máy bạn, biến terminal chat thành một hệ thống tự động hóa tác vụ chuyên nghiệp.'
-          : 'ClaudeKit is not a standalone app or a new IDE. It is an advanced Framework integrated directly into your native Claude Code configuration (.claude) on your machine, transforming your terminal chat into a professional task automation system.'}
+          ? 'Vit Engine không phải là một phần mềm độc lập hay IDE mới. Nó là một bộ khung (Framework) nâng cao được tích hợp thẳng vào cấu hình native (.claude) của Claude Code trên máy bạn, biến terminal chat thành một hệ thống tự động hóa tác vụ chuyên nghiệp.'
+          : 'Vit Engine is not a standalone app or a new IDE. It is an advanced Framework integrated directly into your native Claude Code configuration (.claude) on your machine, transforming your terminal chat into a professional task automation system.'}
       </p>
 
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 pt-4 text-left">
@@ -718,7 +719,7 @@ const getCommandNavItem = (id: string) => {
              <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09z" /></svg>
           </div>
           <h3 class="font-semibold text-gray-900 dark:text-white/90 mb-1">{isVi ? '2. Skills (Kiến thức có sẵn)' : '2. Skills (Pre-built Knowledge)'}</h3>
-          <p class="text-[13px] text-gray-600 dark:text-white/50">{isVi ? 'Các gói năng lực chuyên biệt kèm prompt, references và scripts. Là đơn vị thực thi chính khi bạn gõ /ck:*.' : 'Specialized capability packages with prompts, references, and scripts. The primary execution unit when you type /ck:* commands.'}</p>
+          <p class="text-[13px] text-gray-600 dark:text-white/50">{isVi ? 'Các gói năng lực chuyên biệt kèm prompt, references và scripts. Là đơn vị thực thi chính khi bạn gõ /vit:*.' : 'Specialized capability packages with prompts, references, and scripts. The primary execution unit when you type /vit:* commands.'}</p>
         </div>
 
         <div class="bg-white dark:bg-white/5 border border-gray-200 dark:border-white/10 shadow-sm dark:shadow-none rounded-xl p-4">
@@ -769,8 +770,8 @@ const getCommandNavItem = (id: string) => {
       </h3>
       <p class="text-sm text-gray-500 dark:text-white/50 max-w-md mx-auto">
         {isVi
-          ? 'VividKit đang hoàn thiện hướng dẫn chi tiết cho Bộ Marketing.'
-          : 'VividKit is finalizing the detailed guide for Marketing Kit.'}
+          ? 'Vit Engine đang hoàn thiện hướng dẫn chi tiết cho Bộ Marketing.'
+          : 'Vit Engine is finalizing the detailed guide for Marketing Kit.'}
       </p>
     </div>
   </section>
@@ -850,7 +851,7 @@ const getCommandNavItem = (id: string) => {
         class="flex items-center gap-2 px-6 py-2.5 bg-blue-600 dark:bg-white text-white dark:text-black font-semibold rounded-lg hover:bg-blue-700 dark:hover:bg-white/90 transition-colors"
       >
         <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12" /></svg>
-        {isVi ? 'Cài đặt ClaudeKit ngay' : 'Install ClaudeKit Now'}
+        {isVi ? 'Cài đặt Vit Engine ngay' : 'Install Vit Engine Now'}
       </a>
       <a
         href={isVi ? '/vi/guides/commands' : '/guides/commands'}

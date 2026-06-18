@@ -1,18 +1,17 @@
 // VI translations - common/shared namespaces
 export const common = {
-  // claudekit
-  // ClaudeKit section
+  // Vit Engine section — đổi brand ClaudeKit/VividKit → Vit/Vit Engine
   'claudekit.powered_by': 'Được hỗ trợ bởi',
-  'claudekit.section_description': 'VividKit yêu cầu ClaudeKit để hoạt động. Đây là lý do tại sao nó đáng giá.',
-  'claudekit.feature1.title': '14 Agent Chuyên Biệt',
-  'claudekit.feature1.description': 'Planner, code-reviewer, debugger, tester, UI designer, và 9 persona AI chuyên biệt khác.',
-  'claudekit.feature2.title': '26 Lệnh & 47 Skill',
+  'claudekit.section_description': 'Vit Engine cung cấp sức mạnh AI coding cho mọi dự án của bạn.',
+  'claudekit.feature1.title': '13 Agent Chuyên Biệt',
+  'claudekit.feature1.description': 'Planner, code-reviewer, debugger, tester, UI designer, và các agent AI chuyên biệt khác.',
+  'claudekit.feature2.title': '84 Skills Mạnh Mẽ',
   'claudekit.feature2.description': 'Bootstrap, plan, code, fix, test, design — bộ công cụ hoàn chỉnh từ ý tưởng đến triển khai.',
   'claudekit.feature3.title': 'Skill UI/UX Pro Max',
   'claudekit.feature3.description': '50+ phong cách UI, 21+ màu sắc, 50+ phông chữ — thiết kế chuyên nghiệp tức thì.',
-  'claudekit.cta_title': 'Nhận ClaudeKit với Giảm Giá 20%',
-  'claudekit.cta_description': 'Bạn sẽ cần ClaudeKit để sử dụng VividKit. Mua qua link giới thiệu của chúng tôi để nhận giảm giá độc quyền 20%.',
-  'claudekit.cta_button': 'Nhận ClaudeKit (Giảm 20%)',
+  'claudekit.cta_title': 'Bắt Đầu với Vit Engine',
+  'claudekit.cta_description': 'Cài đặt Vit Engine để mở khóa toàn bộ 84 skills và 13 agents cho workflow AI coding của bạn.',
+  'claudekit.cta_button': 'Bắt Đầu với Vit Engine',
   // common
   // Common
   'common.loading': 'Đang tải...',
@@ -49,21 +48,22 @@ export const common = {
   'feature.highlight3.description': 'Thử features mới trước khi ra mắt công khai',
   // features
   // Features section
-  'features.title': 'VividKit: Visual Interface',
-  'features.subtitle': 'cho ClaudeKit',
-  'features.description': 'Biến hệ thống agent mạnh mẽ của ClaudeKit thành trải nghiệm trực quan, dễ tiếp cận. Không cần chuyên môn về terminal.',
-  'features.prerequisites': 'Điều kiện tiên quyết: Đã cài đặt ClaudeKit CLI',
-  'features.setup': 'Thiết lập: 30 giây cho người dùng hiện tại',
-  'features.item1': 'Khiến 66 lệnh & skills của ClaudeKit trở nên dễ tiếp cận qua GUI trực quan',
-  'features.item2': 'Duyệt 40+ skill của ClaudeKit một cách trực quan (không cần lội vào thư mục)',
-  'features.item3': 'Xem các agent của ClaudeKit điều phối trong thời gian thực',
-  'features.item4': 'Theo dõi việc sử dụng và chi phí token qua dashboard trực quan',
-  'features.window_title': 'VividKit - Giao Diện Trực Quan',
+  // Features section — đổi sang Vit Engine
+  'features.title': 'Vit Engine: AI Coding Siêu Tốc',
+  'features.subtitle': 'với Claude Code',
+  'features.description': 'Biến hệ thống agent mạnh mẽ của Vit Engine thành sức mạnh coding của bạn. 84 skills, 13 agents, hoàn toàn trong terminal.',
+  'features.prerequisites': 'Điều kiện tiên quyết: Đã cài đặt Vit CLI',
+  'features.setup': 'Thiết lập: vit init trong project của bạn',
+  'features.item1': 'Truy cập 84 skills Vit Engine ngay trong Claude Code',
+  'features.item2': 'Dùng 13 agent chuyên biệt cho từng tác vụ cụ thể',
+  'features.item3': 'Xem các agent Vit điều phối công việc trong thời gian thực',
+  'features.item4': 'Theo dõi việc sử dụng và chi phí token qua báo cáo tích hợp',
+  'features.window_title': 'Vit Engine - AI Coding',
   // fix_logs — translations moved to inline in FixLogsGuide.astro
   // footer
-  // Footer
-  'footer.tagline': 'Xây dựng mọi thứ không cần terminal friction. Powered by ClaudeKit Framework.',
-  'footer.copyright': '© 2025 VividKit. All rights reserved.',
+  // Footer — đổi brand sang Vit
+  'footer.tagline': 'Xây dựng mọi thứ không cần terminal friction. Powered by Vit Engine.',
+  'footer.copyright': '© 2025 Vit. All rights reserved.',
   'footer.sponsor': 'Ủng hộ trên GitHub',
   // Footer links
   'footer.product': 'Sản Phẩm',
@@ -88,11 +88,11 @@ export const common = {
   'footer.links.terms': 'Điều Khoản',
   'footer.links.cookies': 'Cookies',
   'footer.links.license': 'Giấy Phép',
-  // Footer component
-  'footer.claudekit_discord': 'ClaudeKit Discord',
+  // Footer component — đổi sang Vit
+  'footer.claudekit_discord': 'Cộng Đồng Vit',
   'footer.get_started': 'Bắt Đầu',
-  'footer.claudekit_discount': 'ClaudeKit (Giảm 20%)',
-  'footer.required_for_vividkit': 'Yêu cầu cho VividKit',
+  'footer.claudekit_discount': 'Bắt Đầu với Vit',
+  'footer.required_for_vividkit': 'Yêu cầu Vit Engine',
   // form
   // Waitlist form
   'form.name': 'Tên của bạn',
@@ -102,7 +102,7 @@ export const common = {
   'form.role.designer': 'Designer',
   'form.role.developer': 'Developer',
   'form.role.other': 'Khác',
-  'form.message': 'Bạn muốn xây dựng gì với VividKit? (optional)',
+  'form.message': 'Bạn muốn xây dựng gì với Vit Engine? (optional)',
   'form.submit': 'Tham Gia Waitlist',
   'form.assurance': 'Early access miễn phí. Không cần credit card. Không spam.',
   'form.success': 'Cảm ơn! Chúng tôi sẽ liên hệ sớm.',
@@ -126,13 +126,14 @@ export const common = {
   'header.toggle_theme': 'Chuyển đổi giao diện',
   // hero
   // Hero section
-  'hero.badge': 'Desktop App Sắp Ra Mắt',
-  'hero.headline.line1': 'ClaudeKit,',
-  'hero.headline.line2': 'Trở Nên Trực Quan',
-  'hero.subtitle': 'Giao diện trực quan cho ClaudeKit AI commands và skills. Không cần nhớ lệnh. Không cần biết terminal. Chỉ việc chọn và click.',
-  'hero.cta.primary': 'Tham Gia Waitlist',
-  'hero.cta.secondary': 'Mẹo Dùng ClaudeKit',
-  'hero.claudekit.info': 'Cho ClaudeKit users: Biến CLI workflow thành trải nghiệm visual. Developer và non-developer đều dùng được.',
+  // Hero section — đổi brand sang Vit
+  'hero.badge': 'Vit Engine — Sẵn Sàng Ngay',
+  'hero.headline.line1': 'Vit Engine,',
+  'hero.headline.line2': 'AI Coding Siêu Tốc',
+  'hero.subtitle': '84 skills và 13 agents cho Claude Code. Tăng tốc coding workflow với Vit Engine.',
+  'hero.cta.primary': 'Bắt Đầu Ngay',
+  'hero.cta.secondary': 'Xem Hướng Dẫn',
+  'hero.claudekit.info': 'Cho Vit Engine users: Khai thác toàn bộ 84 skills ngay từ terminal.',
   // Hero features
   'hero.features.visual_palette': 'Visual Command Palette',
   'hero.features.skill_browser': 'Skill Browser',
@@ -142,7 +143,7 @@ export const common = {
   'nav.home': 'Trang Chủ',
   'nav.features': 'Tính Năng',
   'nav.pricing': 'Bảng Giá',
-  'nav.claudekit': 'ClaudeKit',
+  'nav.claudekit': 'Vit Engine',
   'nav.commands': 'Lệnh',
   'nav.guides': 'Hướng Dẫn',
   // permissions
@@ -225,13 +226,13 @@ export const common = {
   'permissions.guide.docs.text': 'Để xem tài liệu đầy đủ về permission scopes và cú pháp, hãy truy cập',
   'permissions.guide.docs.link': 'Tài liệu Chính thức Claude Code',
   'permissions.guide.hooks_note_title': 'Hooks format:',
-  'permissions.guide.hooks_note_desc': 'Tất cả ClaudeKit hooks dùng .cjs (CommonJS Node.js) — tương thích cross-platform trên macOS, Linux, và Windows. Không cần shell scripts.',
+  'permissions.guide.hooks_note_desc': 'Tất cả Vit Engine hooks dùng .cjs (CommonJS Node.js) — tương thích cross-platform trên macOS, Linux, và Windows. Không cần shell scripts.',
   'permissions.guide.project_local': 'project-local, gitignored',
   // problem
   // Problem section
   'problem.title': 'Vấn Đề: Sức Mạnh CLI',
   'problem.subtitle': 'Không Có Trí Thông Minh Trực Quan',
-  'problem.description': 'ClaudeKit thật tuyệt vời, nhưng terminal không được tạo ra cho các workflow trực quan.',
+  'problem.description': 'Vit Engine thật mạnh mẽ, nhưng đòi hỏi bạn phải hiểu workflow và commands đúng cách.',
   'problem.discover.title': 'Khó Khám Phá',
   'problem.discover.description': 'Tính năng bị chôn vùi trong file markdown. Không có catalog trực quan về các agent, skill và command có sẵn.',
   'problem.remember.title': 'Khó Nhớ',
@@ -243,7 +244,7 @@ export const common = {
   // Problem section (already translated above)
   'problem.section_title': 'Vấn Đề: Sức Mạnh CLI',
   'problem.section_subtitle': 'Không Có Trí Thông Minh Trực Quan',
-  'problem.section_description': 'ClaudeKit thật tuyệt vời, nhưng terminal không được tạo ra cho các workflow trực quan.',
+  'problem.section_description': 'Vit Engine thật mạnh mẽ, nhưng đòi hỏi bạn phải hiểu workflow và commands đúng cách.',
   // promotions
   // Promotions Data
   'promotions.claude_pro.tagline': 'Giảm 50% cho 3 tháng đầu ($10/tháng thay vì $20)',
@@ -290,12 +291,12 @@ export const common = {
   // section
   // Section titles
   'section.features': 'Features',
-  'section.claudekit': 'ClaudeKit',
+  'section.claudekit': 'Vit Engine',
   'section.commands': 'Commands',
   'section.pricing': 'Pricing',
   'section.waitlist': 'Tham Gia Waitlist',
   // site
-  // Site metadata
-  'site.title': 'VividKit - Visual Interface cho ClaudeKit',
-  'site.description': 'Visual interface cho ClaudeKit commands và AI skills. Không cần nhớ. Không cần biết terminal. Chỉ cần click.',
+  // Site metadata — đổi sang Vit
+  'site.title': 'Vit - Hướng Dẫn Vit Engine',
+  'site.description': 'Hướng dẫn toàn diện Vit Engine: 84 skills, 13 agents, CLI và workflows. Tối ưu hóa AI coding với Claude Code.',
 } as const;

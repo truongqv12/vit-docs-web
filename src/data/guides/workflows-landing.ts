@@ -58,7 +58,7 @@ export const landingWorkflows: LandingWorkflow[] = [
     stepCount: 4,
     description: 'Create complete projects from scratch with best practices built-in.',
     steps: [
-      { command: 'ck init', description: 'Initialize ClaudeKit' },
+      { command: 'vit init', description: 'Initialize Vit Engine' },
       { command: '/bootstrap', description: 'Create project structure' },
       { command: '/docs init', description: 'Generate documentation' },
       { command: '/cook', description: 'Build first feature' }

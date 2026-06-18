@@ -1,9 +1,9 @@
 export const cliHeroContent = {
-  title: 'ClaudeKit CLI',
+  title: 'Vit CLI',
   subtitle: 'Command line interface for power users',
-  description: 'ClaudeKit CLI helps you set up ClaudeKit in your projects, then you use Claude Code to get AI assistance. Install ClaudeKit, run claude, and leverage powerful skills like UI/UX Pro Max — all from your terminal!',
+  description: 'Vit CLI helps you set up Vit Engine in your projects, then you use Claude Code to get AI assistance. Install Vit Engine, run claude, and leverage powerful skills like UI/UX Pro Max — all from your terminal!',
   quickWorkflow: [
-    { command: 'ck init', comment: 'Set up ClaudeKit in your project' },
+    { command: 'vit init', comment: 'Set up Vit Engine in your project' },
     { command: 'claude', comment: 'Start Claude Code CLI' }
   ]
 };
@@ -36,15 +36,15 @@ export const cliTerminalPreview = {
 export const cliQuickSteps = [
   {
     number: 1,
-    title: 'Install ClaudeKit CLI',
-    command: 'npm install -g claudekit-cli',
-    note: 'Or use: bun add -g claudekit-cli',
+    title: 'Install Vit CLI',
+    command: 'npm install -g vit-cli',
+    note: 'Or use: bun add -g vit-cli',
     color: 'indigo' as const
   },
   {
     number: 2,
     title: 'Initialize Your Project',
-    command: 'ck init',
+    command: 'vit init',
     note: 'Requires GitHub CLI authentication (gh auth login)',
     color: 'purple' as const
   },
@@ -61,8 +61,8 @@ export const cliCommandCards = [
   {
     number: 1,
     title: 'Setup Project',
-    command: 'ck init',
-    description: 'Initialize ClaudeKit in your project (one-time setup)',
+    command: 'vit init',
+    description: 'Initialize Vit Engine in your project (one-time setup)',
     color: 'emerald' as const
   },
   {

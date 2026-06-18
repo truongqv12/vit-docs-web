@@ -1,6 +1,6 @@
 // Coexistence guide — single source of truth for data tables and recipes.
 // Copy text lives in i18n modules (en/vi/coexistence.ts), keyed by id.
-// Verified against ClaudeKit CLI v3.41.4 in reference/claudekit-cli/.
+// Verified against Vit CLI v3.41.4 in reference/vit-cli/.
 
 export interface ScopeRow {
   id: string;
@@ -151,7 +151,7 @@ export const coexistenceRecipes: CoexistenceRecipe[] = [
       {
         lang: 'bash',
         code: `# Default project install — your global Claude Code setup is untouched
-ck init
+vit init
 
 # Verify project-local install files
 find ./.claude -maxdepth 2 -type f | head`,
@@ -166,8 +166,8 @@ find ./.claude -maxdepth 2 -type f | head`,
       {
         lang: 'bash',
         code: `# settings.json is selectively merged by default.
-# User hooks are preserved; ClaudeKit hooks are deduplicated and tracked.
-ck init`,
+# User hooks are preserved; Vit Engine hooks are deduplicated and tracked.
+vit init`,
       },
       {
         lang: 'json',
@@ -196,7 +196,7 @@ cp -r ./.claude "./.claude.bak.$(date +%s)"
 cp -r ~/.claude "$HOME/.claude.bak.$(date +%s)"
 
 # Then run --fresh fully aware of the reset
-ck init --fresh
+vit init --fresh
 
 # Restore selectively from backup
 cp -r ./.claude.bak.<timestamp>/skills/my-skill ./.claude/skills/`,

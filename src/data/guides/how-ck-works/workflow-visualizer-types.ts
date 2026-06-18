@@ -207,7 +207,7 @@ export type HardGateType = 'warning' | 'critical' | 'info';
 export interface SkillInfographic {
   /** Matches scenario ID */
   id: string;
-  /** Command name (e.g., /ck:brainstorm) */
+  /** Command name (e.g., /vit:brainstorm) */
   command: string;
   kit: KitId;
 

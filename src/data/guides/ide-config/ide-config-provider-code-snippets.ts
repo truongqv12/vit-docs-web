@@ -95,6 +95,6 @@ export const schemaConfig = `"json.schemas": [
       ".ck.json",
       ".claude/settings.local.json"
     ],
-    "url": "https://claudekit.cc/schemas/ck-config.schema.json"
+    "url": "\${PUBLIC_SITE_URL}/schemas/ck-config.schema.json"
   }
 ]`;

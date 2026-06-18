@@ -20,7 +20,7 @@ const copy = currentLang === 'vi'
   ? {
       kicker: 'Safety & Guard Rails',
       summary:
-        'Guard rail không làm model thông minh hơn — nó kiểm tra hành động trước khi tool thật sự chạy. Bài này mổ xẻ 4 lớp guard, 7 nhóm guard rail và những chỗ vẫn hở trong ClaudeKit.',
+        'Guard rail không làm model thông minh hơn — nó kiểm tra hành động trước khi tool thật sự chạy. Bài này mổ xẻ 4 lớp guard, 7 nhóm guard rail và những chỗ vẫn hở trong Vit Engine.',
       sections: {
         introCase: 'Case: task nhỏ, quyền quá rộng',
         vsPrompt: 'Guard rail vs lời dặn trong prompt',
@@ -79,7 +79,7 @@ const copy = currentLang === 'vi'
           name: 'Guard skill (user gọi)',
           enforce: 'User chủ động',
           tone: 'violet',
-          desc: 'Chạy khi user gõ slash command: /ck:security-scan, /ck:predict, /ck:scenario, /ck:ship.',
+          desc: 'Chạy khi user gõ slash command: /vit:security-scan, /vit:predict, /vit:scenario, /vit:ship.',
           caveat: 'Không gọi thì không chạy. Là lớp chủ động, không tự động.',
         },
       ],
@@ -164,13 +164,13 @@ const copy = currentLang === 'vi'
         'Snapshot theo Engineer Kit stable claudekit-engineer@2.19.1. Bản 2.19.2-beta đang chuẩn bị bỏ 2 hook Agent Teams, nên danh sách hook có thể đổi khi upstream release version mới.',
       hooksCtaText: 'Xem chi tiết từng hook trong guide Custom Hooks',
       readMoreText:
-        'Đọc bản đầy đủ với bản đồ ClaudeKit hooks theo lifecycle, snippet settings.json / .ck.json, cơ chế từng hook và phân tích sâu các gap →',
+        'Đọc bản đầy đủ với bản đồ Vit Engine hooks theo lifecycle, snippet settings.json / .ck.json, cơ chế từng hook và phân tích sâu các gap →',
       readMoreCta: 'Đọc bài viết đầy đủ',
     }
   : {
       kicker: 'Safety & Guard Rails',
       summary:
-        "A guard rail doesn't make the model smarter — it checks the action before the tool actually runs. This article breaks down the 4 guard layers, 7 guard-rail groups, and the gaps that remain in ClaudeKit.",
+        "A guard rail doesn't make the model smarter — it checks the action before the tool actually runs. This article breaks down the 4 guard layers, 7 guard-rail groups, and the gaps that remain in Vit Engine.",
       sections: {
         introCase: 'Case: small task, too-broad permissions',
         vsPrompt: 'Guard rail vs prompt instruction',
@@ -229,7 +229,7 @@ const copy = currentLang === 'vi'
           name: 'Guard skill (user-invoked)',
           enforce: 'User-initiated',
           tone: 'violet',
-          desc: 'Runs when the user types a slash command: /ck:security-scan, /ck:predict, /ck:scenario, /ck:ship.',
+          desc: 'Runs when the user types a slash command: /vit:security-scan, /vit:predict, /vit:scenario, /vit:ship.',
           caveat: "If not invoked, it doesn't run. It's an active layer, not automatic.",
         },
       ],
@@ -314,7 +314,7 @@ const copy = currentLang === 'vi'
         'Snapshot of Engineer Kit stable claudekit-engineer@2.19.1. The 2.19.2-beta is preparing to drop 2 Agent Teams hooks, so the hook list may change when upstream ships a new version.',
       hooksCtaText: 'See each hook in detail in the Custom Hooks guide',
       readMoreText:
-        'Read the full version with the ClaudeKit hooks lifecycle map, settings.json / .ck.json snippets, per-hook mechanics, and a deep analysis of the gaps →',
+        'Read the full version with the Vit Engine hooks lifecycle map, settings.json / .ck.json snippets, per-hook mechanics, and a deep analysis of the gaps →',
       readMoreCta: 'Read full article',
     };
 

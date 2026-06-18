@@ -1,5 +1,5 @@
 ---
-// Generic Quick Ref layout for audited How ClaudeKit Works commands.
+// Generic Quick Ref layout for audited How Vit Engine Works commands.
 // Matches the visual grammar used by ck-brainstorm, ck-plan, and ck-cook.
 import type { ProcessFlowStep, PromptExample, SkillInfographic, GuardrailItem, ModeCardData, SpecialOpCard, ProcessGroupLabel } from '@/data/guides/how-ck-works';
 import type { Language } from '@/i18n';
@@ -27,10 +27,12 @@ type ProcessGroup = {
 const { data, lang } = Astro.props;
 const isVi = lang === 'vi';
 
-const title = isVi ? data.header.titleVi : data.header.titleEn;
-const tagline = isVi ? data.header.taglineVi : data.header.taglineEn;
-const principles = isVi ? data.corePrinciplesVi : data.corePrinciplesEn;
-const expertise = isVi ? data.expertiseAreasVi : data.expertiseAreasEn;
+// Guard các field có thể thiếu ở entry tối thiểu (skill mới thêm chưa đủ dữ liệu)
+const title = isVi ? data.header?.titleVi : data.header?.titleEn;
+const tagline = isVi ? data.header?.taglineVi : data.header?.taglineEn;
+const principles = (isVi ? data.corePrinciplesVi : data.corePrinciplesEn) || [];
+const expertise = (isVi ? data.expertiseAreasVi : data.expertiseAreasEn) || [];
+const processFlow = data.processFlow || [];
 const modes = data.workflowModes || [];
 const promptExamples = data.promptExamples || [];
 const stack = data.skillStack || [];
@@ -108,7 +110,7 @@ const heroWash = data.kit === 'marketer'
   ? 'bg-[linear-gradient(115deg,rgba(217,70,239,0.10),transparent_30%,rgba(245,158,11,0.08)_60%,rgba(14,165,233,0.10))] dark:bg-[linear-gradient(115deg,rgba(217,70,239,0.15),transparent_30%,rgba(245,158,11,0.10)_62%,rgba(14,165,233,0.14))]'
   : 'bg-[linear-gradient(115deg,rgba(16,185,129,0.10),transparent_30%,rgba(245,158,11,0.08)_60%,rgba(139,92,246,0.10))] dark:bg-[linear-gradient(115deg,rgba(16,185,129,0.16),transparent_30%,rgba(245,158,11,0.10)_62%,rgba(139,92,246,0.13))]';
 
-const heroFlow = data.processFlow.slice(0, 4).map(step => isVi ? step.titleVi : step.titleEn);
+const heroFlow = processFlow.slice(0, 4).map(step => isVi ? step.titleVi : step.titleEn);
 const fallbackHeroFlow = isVi ? ['Đầu vào', 'Định tuyến', 'Thực thi', 'Báo cáo'] : ['Input', 'Route', 'Execute', 'Report'];
 const heroSteps = heroFlow.length > 0 ? heroFlow : fallbackHeroFlow;
 
@@ -130,15 +132,15 @@ const processGroups: ProcessGroup[] = customGroupLabels.length > 0
   ? customGroupLabels.map((g, i) => ({
       label: isVi ? g.labelVi : g.labelEn,
       kicker: isVi ? g.kickerVi : g.kickerEn,
-      steps: data.processFlow.slice(g.stepSlice[0], g.stepSlice[1]),
+      steps: processFlow.slice(g.stepSlice[0], g.stepSlice[1]),
       tone: tones[i % tones.length],
     })).filter(g => g.steps.length > 0)
   : (() => {
-      const groupSize = Math.max(1, Math.ceil(data.processFlow.length / 4));
+      const groupSize = Math.max(1, Math.ceil(processFlow.length / 4));
       return groupLabels
         .map((group, index) => ({
           ...group,
-          steps: data.processFlow.slice(index * groupSize, (index + 1) * groupSize),
+          steps: processFlow.slice(index * groupSize, (index + 1) * groupSize),
           tone: tones[index],
         }))
         .filter(group => group.steps.length > 0);
