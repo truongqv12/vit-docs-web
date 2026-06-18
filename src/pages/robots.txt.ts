@@ -5,7 +5,7 @@ import type { APIRoute } from 'astro';
  * Allows all crawlers and references sitemap
  */
 export const GET: APIRoute = () => {
-  const siteUrl = import.meta.env.PUBLIC_SITE_URL || 'https://vividkit.com';
+  const siteUrl = import.meta.env.PUBLIC_SITE_URL || 'http://localhost';
 
   const robotsTxt = `# Vit Robots.txt
 User-agent: *

@@ -3,7 +3,6 @@
 
 export { stableWorkflows } from './workflows-stable';
 export { betaOnlyWorkflows } from './workflows-beta-additions';
-export { marketingKitWorkflows } from './workflows-marketing-kit';
 export { legacyWorkflows, workflows } from './workflows-legacy';
 
 import { stableWorkflows } from './workflows-stable';

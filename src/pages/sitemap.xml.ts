@@ -4,7 +4,7 @@ import type { APIRoute } from 'astro';
  * Sitemap tĩnh — chỉ còn tiếng Việt (vi), phục vụ tại '/'
  */
 export const GET: APIRoute = () => {
-  const siteUrl = import.meta.env.PUBLIC_SITE_URL || 'https://vividkit.com';
+  const siteUrl = import.meta.env.PUBLIC_SITE_URL || 'http://localhost';
 
   // Danh sách tất cả trang công khai
   // Chỉ liệt kê trang còn tồn tại sau prune P3
