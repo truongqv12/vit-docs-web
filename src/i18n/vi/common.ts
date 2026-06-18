@@ -299,4 +299,8 @@ export const common = {
   // Site metadata — đổi sang Vit
   'site.title': 'Vit - Hướng Dẫn Vit Engine',
   'site.description': 'Hướng dẫn toàn diện Vit Engine: 84 skills, 13 agents, CLI và workflows. Tối ưu hóa AI coding với Claude Code.',
+  // Vị trí file .ck.json — dùng trong CLI guide (AdvancedSettings)
+  'ide_config.guide.ck_json_location_title': 'Vị Trí File',
+  'ide_config.guide.ck_json_project_location': 'Cấp dự án (ưu tiên hơn global, được khuyên dùng):',
+  'ide_config.guide.ck_json_global_location': 'Toàn cầu (áp dụng cho tất cả dự án):',
 } as const;

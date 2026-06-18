@@ -24,8 +24,7 @@ export default defineConfig({
   redirects: {
     // Trang chủ chuyển hướng sang Guides — không còn landing marketing
     '/': '/guides',
-    // Redirect các URL cũ về URL mới
-    '/guides/resume': '/guides/session-recovery',
-    '/guides/mobile-coding': '/guides/remote-control'
+    // Đã xóa redirect: /guides/resume→session-recovery và /guides/mobile-coding→remote-control
+    // vì session-recovery và remote-control đã bị prune P4
   }
 });

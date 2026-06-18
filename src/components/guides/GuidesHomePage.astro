@@ -50,7 +50,8 @@ const pathways = [
     descKey: 'guides.home.pathway_config.desc',
     accentColor: 'amber' as const,
     links: [
-      { href: '/guides/permissions', labelKey: 'guides.home.pathway_config.link_permissions' },
+      // permissions đã bị prune P4 — thay bằng claude-mechanics
+      { href: '/guides/claude-mechanics', labelKey: 'guides.home.pathway_config.link_mechanics' },
       { href: '/guides/hooks', labelKey: 'guides.home.pathway_config.link_hooks' },
       { href: '/guides/coexistence', labelKey: 'guides.home.pathway_config.link_coexistence' },
     ],
@@ -62,9 +63,7 @@ const pathways = [
     descKey: 'guides.home.pathway_providers.desc',
     accentColor: 'purple' as const,
     links: [
-      // ccs/codex-app/ck-with-codex đã bị gỡ theo prune P3 — chỉ giữ ide-config, remote-control, migrate
-      { href: '/guides/ide-config', labelKey: 'guides.home.pathway_environments.link_ide' },
-      { href: '/guides/remote-control', labelKey: 'guides.home.pathway_environments.link_remote_control' },
+      // ide-config và remote-control đã bị prune P4 — chỉ còn migrate
       { href: '/guides/migrate', labelKey: 'guides.home.pathway_providers.link_migrate' },
     ],
   },
@@ -75,7 +74,7 @@ const pathways = [
     descKey: 'guides.home.pathway_reliability.desc',
     accentColor: 'rose' as const,
     links: [
-      { href: '/guides/session-recovery', labelKey: 'guides.home.pathway_reliability.link_session' },
+      // session-recovery đã bị prune P4
       { href: '/guides/fix-logs', labelKey: 'guides.home.pathway_reliability.link_fix_logs' },
       { href: '/guides/uiux', labelKey: 'guides.home.pathway_reliability.link_uiux' },
     ],

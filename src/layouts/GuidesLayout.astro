@@ -9,20 +9,16 @@ interface Props {
   title: string;
   description: string;
   canonicalPath?: string;
-  // Chỉ các tab trang còn tồn tại sau prune P3
+  // Chỉ các tab trang còn tồn tại sau prune P4 (đã xóa remote-control, ide-config, permissions, session-recovery)
   activeTab:
     | 'index'
     | 'cli'
-    | 'remote-control'
-    | 'ide-config'
     | 'coexistence'
     | 'workflows'
     | 'flowchart'
     | 'commands'
     | 'cli-commands'
     | 'uiux'
-    | 'session-recovery'
-    | 'permissions'
     | 'hooks'
     | 'what-is-claudekit'
     | 'fix-logs'

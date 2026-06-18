@@ -3,21 +3,17 @@ import { useTranslations } from '@/i18n/utils';
 import { getLangFromUrl, useTranslatedPath, type Language } from '@/i18n';
 
 export interface Props {
-  // Các tab đang hoạt động — chỉ trang còn tồn tại sau prune P3
+  // Các tab đang hoạt động — đã xóa remote-control, ide-config, permissions, session-recovery (prune P4)
   activeTab:
     | 'index'
     | 'what-is-claudekit'
     | 'cli'
-    | 'remote-control'
-    | 'ide-config'
     | 'coexistence'
     | 'workflows'
     | 'flowchart'
     | 'commands'
     | 'cli-commands'
     | 'uiux'
-    | 'session-recovery'
-    | 'permissions'
     | 'fix-logs'
     | 'hooks'
     | 'migrate'
@@ -101,12 +97,6 @@ const navSections = [
         href: '/guides/claude-mechanics',
       },
       {
-        id: 'permissions',
-        label: t('guides.permissions.title'),
-        icon: `<svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 10.5V6.75a4.5 4.5 0 119 0v3.75M3.75 21.75h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H3.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z" /></svg>`,
-        href: '/guides/permissions',
-      },
-      {
         id: 'hooks',
         label: t('guides.custom_hooks.title'),
         icon: `<svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M14.25 9.75L16.5 12l-2.25 2.25m-4.5 0L7.5 12l2.25-2.25M6 20.25h12A2.25 2.25 0 0020.25 18V6A2.25 2.25 0 0018 3.75H6A2.25 2.25 0 003.75 6v12A2.25 2.25 0 006 20.25z" /></svg>`,
@@ -140,21 +130,9 @@ const navSections = [
   },
   {
     id: 'multi-provider',
-    // Section giữ lại ide-config, remote-control, migrate — đã bỏ ccs/codex/ck-with-codex
+    // Chỉ còn migrate sau khi bỏ ide-config và remote-control (prune P4)
     label: t('guides.sections.multi_provider'),
     items: [
-      {
-        id: 'ide-config',
-        label: t('guides.ide_config.title'),
-        icon: `<svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><path d="M8 21h8M12 17v4"/><path d="M8 9l3 3-3 3"/><path d="M13 15h4"/></svg>`,
-        href: '/guides/ide-config',
-      },
-      {
-        id: 'remote-control',
-        label: currentLang === 'vi' ? 'Remote Control' : 'Remote Control',
-        icon: `<svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>`,
-        href: '/guides/remote-control',
-      },
       {
         id: 'migrate',
         label: currentLang === 'vi' ? 'Migrate sang Tool Khác' : 'Migrate to Other Tools',
@@ -167,12 +145,6 @@ const navSections = [
     id: 'troubleshooting',
     label: t('guides.sections.troubleshooting'),
     items: [
-      {
-        id: 'session-recovery',
-        label: t('guides.session_recovery.title'),
-        icon: `<svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" /></svg>`,
-        href: '/guides/session-recovery',
-      },
       {
         id: 'fix-logs',
         label: t('guides.fix_logs.title'),

@@ -31,7 +31,7 @@ export const ccs = {
   'ccs.guide.intro_nav_cheatsheet': 'CLI Cheatsheet',
   'ccs.guide.intro_nav_decision_tree': 'Provider Decision Tree',
   'ccs.guide.intro_nav_workflows': 'Best Workflows',
-  'ccs.guide.intro_session_recovery_link': 'Muốn tìm hiểu thêm về cách resume session giữa các provider? Xem <a href="/vi/guides/session-recovery" class="text-blue-600 dark:text-blue-400 underline font-medium">Hướng Dẫn Phục Hồi Session</a>.',
+  // session-recovery đã bị prune P4 — key này không còn được dùng, đã xóa
   // Solution stats (used in Introduction)
   'ccs.guide.solution_title': 'Giải Pháp',
   'ccs.guide.solution_desc': 'CCS điều phối 14 provider OAuth, đa tài khoản Claude, và API profile BYO-key qua một CLI duy nhất. Đổi model, xếp chồng tài khoản, chạy song song — chỉ với một lệnh.',
