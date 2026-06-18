@@ -1,0 +1,280 @@
+---
+import Logo from '@/components/ui/Logo.astro';
+import { getLangFromUrl, languages, useTranslatedPath, type Language } from '@/i18n';
+import { useTranslations } from '@/i18n/utils';
+
+interface Props {
+  class?: string;
+  lang?: Language;
+}
+
+const { class: className = '', lang = 'en' } = Astro.props;
+
+// Get language from URL if not provided
+const currentLang = getLangFromUrl(Astro.url);
+const t = useTranslations(currentLang);
+const translatePath = useTranslatedPath(currentLang);
+---
+
+<header class="fixed top-6 left-6 right-6 z-50 transition-all duration-300" id="main-header">
+  <div class="glass-card bg-white/70 dark:bg-slate-950/70 border border-white/40 dark:border-white/10 rounded-full max-w-5xl mx-auto shadow-2xl shadow-black/5 ring-1 ring-black/5 dark:ring-white/10">
+    <div class="px-4 lg:px-6 py-3">
+      <div class="flex items-center justify-between gap-4">
+        <!-- Logo -->
+        <a href={translatePath('/#hero')} class="flex items-center gap-3 hover:opacity-80 transition-opacity cursor-pointer shrink-0">
+          <Logo size="md" />
+        </a>
+
+        <!-- Centered Navigation -->
+        <nav class="hidden lg:flex items-center justify-center flex-1">
+          <ul class="flex items-center gap-3 xl:gap-5 px-3 xl:px-4 py-1.5 rounded-full bg-white/50 dark:bg-white/5 border border-white/20 dark:border-white/5 shadow-inner">
+            <li><a href={translatePath('/#hero')} class="nav-link text-[10px] xl:text-xs font-semibold uppercase tracking-wide px-1.5 xl:px-2 py-1 whitespace-nowrap">{t('nav.home')}</a></li>
+            <li><a href={translatePath('/#features')} class="nav-link text-[10px] xl:text-xs font-semibold uppercase tracking-wide px-1.5 xl:px-2 py-1 whitespace-nowrap">{t('nav.features')}</a></li>
+            <li><a href={translatePath('/#pricing')} class="nav-link text-[10px] xl:text-xs font-semibold uppercase tracking-wide px-1.5 xl:px-2 py-1 whitespace-nowrap">{t('nav.pricing')}</a></li>
+            <li><a href={translatePath('/guides')} class="nav-link text-[10px] xl:text-xs font-semibold uppercase tracking-wide px-1.5 xl:px-2 py-1 whitespace-nowrap">{t('nav.guides')}</a></li>
+          </ul>
+        </nav>
+
+        <!-- Right Actions -->
+        <div class="flex items-center gap-2 lg:gap-3 shrink-0">
+          <!-- Language Toggle -->
+          <a
+            href={translatePath(Astro.url.pathname, currentLang === 'en' ? 'vi' : 'en')}
+            data-lang-toggle
+            class="w-8 h-8 flex items-center justify-center rounded-full hover:bg-black/5 dark:hover:bg-white/10 transition-colors cursor-pointer text-slate-600 dark:text-slate-300"
+            title={currentLang === 'en' ? 'Chuyển sang Tiếng Việt' : 'Switch to English'}
+          >
+            <span class="text-xs font-bold">{currentLang === 'en' ? 'VI' : 'EN'}</span>
+          </a>
+
+          <!-- Theme Toggle Button -->
+          <button id="theme-toggle" class="w-8 h-8 flex items-center justify-center rounded-full hover:bg-black/5 dark:hover:bg-white/10 transition-colors cursor-pointer text-slate-600 dark:text-slate-300" aria-label={t('header.toggle_theme')}>
+            <!-- Sun icon -->
+            <svg class="w-4 h-4 hidden dark:block sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="5"/>
+              <line x1="12" y1="1" x2="12" y2="3"/>
+              <line x1="12" y1="21" x2="12" y2="23"/>
+              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+              <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+              <line x1="1" y1="12" x2="3" y2="12"/>
+              <line x1="21" y1="12" x2="23" y2="12"/>
+              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+              <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+            </svg>
+            <!-- Moon icon -->
+            <svg class="w-4 h-4 dark:hidden moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+            </svg>
+          </button>
+
+          <a href={translatePath('/#waitlist')} class="hidden lg:flex items-center gap-2 px-4 xl:px-5 py-2 rounded-full cta-button font-bold text-[10px] xl:text-xs cursor-pointer whitespace-nowrap">
+            <span>{t('hero.cta.primary')}</span>
+            <svg class="w-3 h-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
+            </svg>
+          </a>
+
+          <!-- Mobile Menu Button -->
+          <button id="mobile-menu-toggle" class="lg:hidden p-2 text-slate-600 dark:text-slate-300 cursor-pointer" aria-label={currentLang === 'vi' ? 'Mở menu' : 'Open menu'}>
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div id="mobile-menu" class="hidden lg:hidden absolute top-full left-4 right-4 mt-2 glass-card rounded-2xl p-4 shadow-xl">
+    <nav class="flex flex-col gap-2">
+      <a href={translatePath('/#hero')} class="px-4 py-3 rounded-xl hover:bg-slate-100 dark:hover:bg-white/10 text-slate-600 dark:text-slate-300 font-medium transition-colors">{t('nav.home')}</a>
+      <a href={translatePath('/#features')} class="px-4 py-3 rounded-xl hover:bg-slate-100 dark:hover:bg-white/10 text-slate-600 dark:text-slate-300 font-medium transition-colors">{t('nav.features')}</a>
+      <a href={translatePath('/#pricing')} class="px-4 py-3 rounded-xl hover:bg-slate-100 dark:hover:bg-white/10 text-slate-600 dark:text-slate-300 font-medium transition-colors">{t('nav.pricing')}</a>
+      <a href={translatePath('/#claudekit')} class="px-4 py-3 rounded-xl hover:bg-slate-100 dark:hover:bg-white/10 text-slate-600 dark:text-slate-300 font-medium transition-colors">{t('nav.claudekit')}</a>
+      <a href={translatePath('/#commands')} class="px-4 py-3 rounded-xl hover:bg-slate-100 dark:hover:bg-white/10 text-slate-600 dark:text-slate-300 font-medium transition-colors">{t('nav.commands')}</a>
+      <a href={translatePath('/guides')} class="px-4 py-3 rounded-xl hover:bg-slate-100 dark:hover:bg-white/10 text-slate-600 dark:text-slate-300 font-medium transition-colors">{t('nav.guides')}</a>
+      <div class="h-px bg-slate-200 dark:bg-slate-700 my-2"></div>
+      <a
+        href={translatePath(Astro.url.pathname, currentLang === 'en' ? 'vi' : 'en')}
+        data-lang-toggle
+        class="px-4 py-3 rounded-xl hover:bg-slate-100 dark:hover:bg-white/10 text-slate-600 dark:text-slate-300 font-medium transition-colors flex items-center gap-2"
+      >
+        <span class="font-bold">{currentLang === 'en' ? 'VI' : 'EN'}</span>
+        <span>{currentLang === 'en' ? 'Tiếng Việt' : 'English'}</span>
+      </a>
+      <div class="h-px bg-slate-200 dark:bg-slate-700 my-2"></div>
+      <a href={translatePath('/#waitlist')} class="px-4 py-3 rounded-xl bg-blue-600 text-white font-medium text-center">{t('hero.cta.primary')}</a>
+    </nav>
+  </div>
+</header>
+
+<script is:inline>
+  // Preserve current hash when switching language so anchor-driven guides
+  // (e.g. how-ck-works) don't reset to their default scenario.
+  document.querySelectorAll('a[data-lang-toggle]').forEach(link => {
+    link.addEventListener('click', event => {
+      const hash = window.location.hash;
+      if (!hash) return;
+      const target = event.currentTarget;
+      const base = (target.getAttribute('href') || '').split('#')[0];
+      target.setAttribute('href', base + hash);
+    });
+  });
+
+  const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+  const mobileMenu = document.getElementById('mobile-menu');
+
+  if (mobileMenuToggle && mobileMenu) {
+    mobileMenuToggle.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+
+    // Close menu when clicking on links
+    mobileMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+      });
+    });
+  }
+
+  // Active Navigation Highlighting
+  const navLinks = document.querySelectorAll('.nav-link');
+  const clearActive = () => navLinks.forEach(l => l.classList.remove('active'));
+
+  function setActiveByHash(hash) {
+    if (!hash) return;
+    clearActive();
+    // Try exact match first
+    let link = document.querySelector(`.nav-link[href="${hash}"]`);
+    // Then try contains
+    if (!link) link = document.querySelector(`.nav-link[href*="${hash}"]`);
+
+    if (link) {
+      link.classList.add('active');
+    }
+  }
+
+  // Logic for highlighting based on current page/section
+  function updateActiveNav() {
+    const path = window.location.pathname;
+    const hash = window.location.hash;
+
+    // 1. Guides Page
+    if (path.startsWith('/guides') || path.startsWith('/ck-guides')) {
+      clearActive();
+      navLinks.forEach(link => {
+        if (link.getAttribute('href').includes('/guides')) {
+          link.classList.add('active');
+        }
+      });
+      return;
+    }
+
+    // 2. Landing Page (Home)
+    if (path === '/' || path === '/index.html') {
+      // If there is a hash on load, use it immediately
+      if (hash) {
+        setActiveByHash(hash);
+      }
+
+      // Scroll Spy
+      const sections = document.querySelectorAll('section[id]');
+
+      const observerCallback = (entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const id = entry.target.id;
+            // Only update if we're not currently clicking (optional, but observer is usually trusted)
+            clearActive();
+            const activeLink = document.querySelector(`.nav-link[href*="#${id}"]`);
+            if (activeLink) {
+              activeLink.classList.add('active');
+            }
+          }
+        });
+      };
+
+      // Adjust rootMargin to trigger when section enters the top-middle area
+      const observer = new IntersectionObserver(observerCallback, {
+        rootMargin: '-20% 0px -80% 0px'
+      });
+
+      sections.forEach(section => {
+        observer.observe(section);
+      });
+
+      // Immediate active state on click
+      navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+          // Identify if it's a hash link
+          const href = link.getAttribute('href');
+          if (href.includes('#')) {
+             setTimeout(() => {
+                clearActive();
+                link.classList.add('active');
+             }, 10);
+          }
+        });
+      });
+    }
+  }
+
+  // Run on load
+  updateActiveNav();
+
+  // Handle back/forward navigation
+  window.addEventListener('popstate', () => {
+    updateActiveNav();
+  });
+
+  // Handle hash changes (manual or otherwise)
+  window.addEventListener('hashchange', () => {
+    if (window.location.pathname === '/' || window.location.pathname === '/index.html') {
+       setActiveByHash(window.location.hash);
+    }
+  });
+
+  // Auto-hide header on scroll down, show on scroll up (guides article pages only)
+  (function() {
+    const path = window.location.pathname;
+    // Match inside-claudekit sub-article pages: /guides/inside-claudekit/xxx or /vi/guides/inside-claudekit/xxx
+    const isArticlePage = /\/(vi\/)?guides\/inside-claudekit\/.+/.test(path);
+    if (!isArticlePage) return;
+
+    const header = document.getElementById('main-header');
+    if (!header) return;
+
+    let lastScrollY = window.scrollY;
+    let ticking = false;
+    const SCROLL_THRESHOLD = 60; // px before triggering hide
+
+    function onScroll() {
+      const currentY = window.scrollY;
+      const delta = currentY - lastScrollY;
+
+      if (currentY <= SCROLL_THRESHOLD) {
+        // At top of page — always show
+        header.style.transform = '';
+        header.style.opacity = '';
+      } else if (delta > 5) {
+        // Scrolling down — hide
+        header.style.transform = 'translateY(-120%)';
+        header.style.opacity = '0';
+      } else if (delta < -5) {
+        // Scrolling up — show
+        header.style.transform = '';
+        header.style.opacity = '';
+      }
+
+      lastScrollY = currentY;
+      ticking = false;
+    }
+
+    window.addEventListener('scroll', () => {
+      if (!ticking) {
+        requestAnimationFrame(onScroll);
+        ticking = true;
+      }
+    }, { passive: true });
+  })();
+
+</script>

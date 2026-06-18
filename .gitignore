@@ -1,0 +1,47 @@
+# build output
+dist/
+# generated types
+.astro/
+
+# dependencies
+node_modules/
+
+# logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+
+# environment variables
+.env
+.env.local
+.env.production
+
+# macOS-specific files
+.DS_Store
+
+# jetbrains setting folder
+.idea/
+
+# Vercel
+.vercel/
+
+# VSCode
+.vscode/
+
+.claude/
+.agent/
+.agents/
+.shared/
+.handoff/
+reference/**/*
+!reference/skills-registry.json
+!reference/skills-registry-index.json
+plans/**/*
+!plans/templates/*
+
+# local-only working assets
+archive/
+assets/generated/
+repomix-output.xml

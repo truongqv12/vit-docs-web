@@ -1,0 +1,26 @@
+{
+  "name": "vit-docs-web",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@fontsource/dm-sans": "^5.2.8",
+    "@fontsource/fira-code": "^5.2.7",
+    "@fontsource/space-grotesk": "^5.2.10",
+    "alpinejs": "^3.15.2",
+    "astro": "^6.0.2",
+    "lucide-astro": "^0.555.0"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.7",
+    "@tailwindcss/vite": "^4.1.17",
+    "@types/alpinejs": "^3.13.11",
+    "tailwindcss": "^4.1.17",
+    "typescript": "^5.9.3"
+  }
+}
