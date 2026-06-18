@@ -11,6 +11,10 @@ RUN npm ci
 
 # Sao chép mã nguồn và build (output: static → /app/dist)
 COPY . .
+# URL công khai để bake vào canonical/sitemap/robots khi build. Đặt qua build-arg:
+#   docker compose build --build-arg PUBLIC_SITE_URL=https://docs.example.com
+ARG PUBLIC_SITE_URL=http://localhost
+ENV PUBLIC_SITE_URL=$PUBLIC_SITE_URL
 RUN npm run build
 
 # --- Tầng runtime: Caddy phục vụ tĩnh, chỉ HTTP nội bộ (TLS do nginx host lo) ---

@@ -4,7 +4,11 @@
 
 services:
   vit-docs-web:
-    build: .
+    build:
+      context: .
+      args:
+        # Đặt domain thật khi build production: PUBLIC_SITE_URL=https://docs.example.com docker compose build
+        PUBLIC_SITE_URL: ${PUBLIC_SITE_URL:-http://localhost}
     image: vit-docs-web:latest
     container_name: vit-docs-web
     restart: unless-stopped
