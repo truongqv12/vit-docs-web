@@ -10,16 +10,6 @@ export function getEngineerKitCategories(t: TranslationFn): CommandCategory[] {
       color: "green",
       icon: `<path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>`,
       commands: [
-        // Deprecated: Learn the tool (archived in v2.14.0)
-        {
-          command: "/vit:ck-help",
-          complexity: "⚡",
-          label: t("commands.label.easy"),
-          desc: t("commands.stable.ck_help.desc"),
-          detail: t("commands.stable.ck_help.detail"),
-          isSkill: true,
-          deprecated: true,
-        },
         // Step 1: Set experience level
         {
           command: "/vit:coding-level",

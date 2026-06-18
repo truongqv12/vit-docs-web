@@ -164,16 +164,16 @@ const coreSkillInfographics: SkillInfographic[] = [
     header: {
       titleEn: '/vit:plan',
       titleVi: '/vit:plan',
-      taglineEn: 'Implementation planner with cross-plan scan, scope challenge, research phases, red-team review, and task hydration. Creates actionable phase files via the ck CLI.',
-      taglineVi: 'Lập kế hoạch triển khai với cross-plan scan, scope challenge, phases nghiên cứu, review red-team, và hydrate tasks. Tạo phase files có thể hành động qua ck CLI.',
+      taglineEn: 'Implementation planner with cross-plan scan, scope challenge, research phases, red-team review, and task hydration. Creates actionable phase files via the vit CLI.',
+      taglineVi: 'Lập kế hoạch triển khai với cross-plan scan, scope challenge, phases nghiên cứu, review red-team, và hydrate tasks. Tạo phase files có thể hành động qua vit CLI.',
     },
 
     hardGate: {
       type: 'warning',
       titleEn: 'HARD GATE',
       titleVi: 'HARD GATE',
-      contentEn: 'No code implementation — /vit:plan only creates plans. CLI-owned scaffolding via `ck plan create/check/uncheck`; never hand-edit the phases table when CLI is available. Plans must live under project or global plan roots, never arbitrary user directories.',
-      contentVi: 'Không triển khai code — /vit:plan chỉ tạo plans. Scaffolding do CLI sở hữu qua `ck plan create/check/uncheck`; không sửa tay bảng phases khi CLI có sẵn. Plans phải nằm dưới project hoặc global plan roots, không phải thư mục user tùy ý.',
+      contentEn: 'No code implementation — /vit:plan only creates plans. CLI-owned scaffolding via `vit plan create/check/uncheck`; never hand-edit the phases table when CLI is available. Plans must live under project or global plan roots, never arbitrary user directories.',
+      contentVi: 'Không triển khai code — /vit:plan chỉ tạo plans. Scaffolding do CLI sở hữu qua `vit plan create/check/uncheck`; không sửa tay bảng phases khi CLI có sẵn. Plans phải nằm dưới project hoặc global plan roots, không phải thư mục user tùy ý.',
     },
 
     processFlow: [
@@ -183,7 +183,7 @@ const coreSkillInfographics: SkillInfographic[] = [
       { number: 4, titleEn: 'Mode', titleVi: 'Chế độ', descEn: 'Auto-detect or explicit flag', descVi: 'Tự động phát hiện hoặc flag rõ ràng' },
       { number: 5, titleEn: 'Research', titleVi: 'Nghiên cứu', descEn: 'Spawn researcher agents (skip in fast)', descVi: 'Spawn researcher agents (bỏ trong fast)' },
       { number: 6, titleEn: 'Analyze', titleVi: 'Phân tích', descEn: 'Read docs, scout codebase if stale', descVi: 'Đọc docs, scout codebase nếu cũ' },
-      { number: 7, titleEn: 'Plan', titleVi: 'Lập kế hoạch', descEn: 'Planner writes plan.md + phase files via ck CLI', descVi: 'Planner viết plan.md + phase files qua ck CLI' },
+      { number: 7, titleEn: 'Plan', titleVi: 'Lập kế hoạch', descEn: 'Planner writes plan.md + phase files via vit CLI', descVi: 'Planner viết plan.md + phase files qua vit CLI' },
       { number: 8, titleEn: 'Red Team', titleVi: 'Red Team', descEn: 'Adversarial review (2-4 reviewers)', descVi: 'Review đối kháng (2-4 reviewers)' },
       { number: 9, titleEn: 'Validate', titleVi: 'Xác thực', descEn: 'Verification pass + critical questions', descVi: 'Verification pass + câu hỏi quan trọng' },
       { number: 10, titleEn: 'Hydrate', titleVi: 'Hydrate', descEn: 'Create Claude Tasks per phase + critical steps', descVi: 'Tạo Claude Tasks cho mỗi phase + bước quan trọng' },
@@ -192,14 +192,14 @@ const coreSkillInfographics: SkillInfographic[] = [
 
     corePrinciplesEn: [
       'YAGNI / KISS / DRY — be honest, brutal, concise',
-      'CLI-owned scaffolding — use `ck plan` commands, never hand-edit phases',
+      'CLI-owned scaffolding — use `vit plan` commands, never hand-edit phases',
       'Whole-plan consistency sweep after every validate/red-team edit',
       'No code implementation — plans only, hand off via /vit:cook',
       'Plans live under project or global roots, never arbitrary directories',
     ],
     corePrinciplesVi: [
       'YAGNI / KISS / DRY — thẳng thắn, brutal, súc tích',
-      'CLI sở hữu scaffolding — dùng lệnh `ck plan`, không sửa tay phases',
+      'CLI sở hữu scaffolding — dùng lệnh `vit plan`, không sửa tay phases',
       'Quét tính nhất quán toàn plan sau mỗi lần validate/red-team edit',
       'Không triển khai code — chỉ plans, bàn giao qua /vit:cook',
       'Plans nằm dưới project hoặc global roots, không phải thư mục tùy ý',
@@ -248,7 +248,7 @@ const coreSkillInfographics: SkillInfographic[] = [
       { name: 'ck:sequential-thinking', type: 'skill' },
       { name: 'ck:project-organization', type: 'skill' },
       { name: 'ck:journal', type: 'skill' },
-      { name: 'ck CLI (plan create/check)', type: 'tool' },
+      { name: 'vit CLI (plan create/check)', type: 'tool' },
       { name: 'TaskCreate / TaskList', type: 'tool' },
       { name: 'AskUserQuestion', type: 'tool' },
     ],

@@ -37,19 +37,19 @@ const text = {
   hardGateItems: isVi
     ? [
         { label: 'Plan only', detail: 'Chỉ tạo plan và phase files. Không triển khai code trong bước này.' },
-        { label: 'CLI-owned scaffolding', detail: 'Scaffolding dùng `ck plan create/check/uncheck`.' },
+        { label: 'CLI-owned scaffolding', detail: 'Scaffolding dùng `vit plan create/check/uncheck`.' },
         { label: 'Status integrity', detail: 'Không sửa tay bảng phases khi CLI có sẵn.' },
       ]
     : [
         { label: 'Plan only', detail: 'Create only the plan and phase files. Do not implement code in this step.' },
-        { label: 'CLI-owned scaffolding', detail: 'Scaffolding uses `ck plan create/check/uncheck`.' },
+        { label: 'CLI-owned scaffolding', detail: 'Scaffolding uses `vit plan create/check/uncheck`.' },
         { label: 'Status integrity', detail: 'Do not hand-edit the phases table when the CLI is available.' },
       ],
   cliCommand: isVi ? 'Tham chiếu CLI' : 'CLI reference',
   noCode: isVi ? 'Không triển khai' : 'No implementation',
   noCodeDesc: isVi ? 'Chỉ tạo plan và phase files.' : 'Only creates plan and phase files.',
   cliOwned: isVi ? 'CLI quản lý' : 'CLI managed',
-  cliOwnedDesc: isVi ? 'Tạo và đổi trạng thái bằng `ck plan`.' : 'Create and update status through `ck plan`.',
+  cliOwnedDesc: isVi ? 'Tạo và đổi trạng thái bằng `vit plan`.' : 'Create and update status through `vit plan`.',
   handoff: isVi ? 'Bàn giao rõ' : 'Clear handoff',
   handoffDesc: isVi ? 'Kết thúc bằng validate, red-team, cook, hoặc dừng.' : 'Ends with validate, red-team, cook, or stop.',
   process: isVi ? 'Bản đồ thực thi' : 'Execution Map',
@@ -88,7 +88,7 @@ const ruleCards = [
     desc: text.cliOwnedDesc,
     marker: 'bg-sky-400',
     href: ckPlanCliHref,
-    command: 'ck plan',
+    command: 'vit plan',
   },
   {
     title: text.handoff,

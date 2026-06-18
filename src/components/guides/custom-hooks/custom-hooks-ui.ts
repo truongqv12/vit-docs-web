@@ -363,8 +363,8 @@ function disableText(hook: HookDef): { en: string; vi: string } {
   }
 
   return {
-    en: "Set the hook flag to false in .claude/.ck.json. Delete the line, or set it back to true, to re-enable.",
-    vi: "Set hook flag về false trong .claude/.ck.json. Muốn bật lại thì xoá dòng đó hoặc set lại true.",
+    en: "Remove or comment out the hook file in .claude/hooks/ to disable it.",
+    vi: "Xoá hoặc comment out file hook trong .claude/hooks/ để tắt nó.",
   };
 }
 

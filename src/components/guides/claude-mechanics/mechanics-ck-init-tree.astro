@@ -29,7 +29,6 @@ const fileTree = [
   { name: '.opencode/', type: 'folder', indent: 0, desc: 'OpenCode compatibility' },
   // .claude/ directory
   { name: '.claude/', type: 'folder', indent: 0, desc: 'Vit Engine config' },
-  { name: '.ck.json', type: 'file', indent: 1, desc: 'Kit metadata' },
   { name: 'settings.json', type: 'file', indent: 1, desc: 'Claude Code settings' },
   { name: 'metadata.json', type: 'file', indent: 1, desc: 'Deletion patterns' },
   { name: 'statusline.cjs', type: 'file', indent: 1, desc: 'Statusline config' },
@@ -53,7 +52,7 @@ const fileTree = [
       <Fragment set:html={icon} />
     </div>
     <h2 class="text-2xl font-bold text-slate-900 dark:text-white flex items-center gap-2 flex-wrap">
-      <code class="text-lg px-2 py-1 rounded bg-slate-100 dark:bg-slate-900 text-green-600 dark:text-green-400 font-mono border border-slate-200 dark:border-slate-700">ck init</code>
+      <code class="text-lg px-2 py-1 rounded bg-slate-100 dark:bg-slate-900 text-green-600 dark:text-green-400 font-mono border border-slate-200 dark:border-slate-700">vit init</code>
       <span>{t('guides.claude_mechanics.section_ck_init_suffix')}</span>
     </h2>
   </div>
@@ -63,7 +62,7 @@ const fileTree = [
     <div class="p-4 bg-slate-100 dark:bg-slate-900 border-b border-slate-200 dark:border-slate-700">
       <div class="flex items-center gap-2 text-slate-600 dark:text-slate-400 text-sm mb-2">
         <span class="text-green-600 dark:text-green-400">$</span>
-        <span class="text-slate-800 dark:text-white font-mono">ck init --kit engineer</span>
+        <span class="text-slate-800 dark:text-white font-mono">vit init --install-skills --yes</span>
       </div>
       <p class="text-sm text-slate-600 dark:text-slate-400">
         {t('guides.claude_mechanics.ck_init.desc')}

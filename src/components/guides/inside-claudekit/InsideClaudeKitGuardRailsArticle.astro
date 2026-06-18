@@ -130,13 +130,13 @@ const copy = currentLang === 'vi'
           name: 'workflow-artifact-gate',
           tone: 'violet',
           problem: 'Kiểm 5 file JSON (context, risk, verification, review, adversarial) trước ship/push/pr/deploy.',
-          gap: 'Là gate mạnh nhất nhưng PHẢI opt-in: wire trong settings.json + bật trong .ck.json.',
+          gap: 'Là gate mạnh nhất nhưng PHẢI opt-in: wire trong settings.json + bật trong .claude/settings.json.',
         },
       ],
       taxonomy: [
         { label: 'script file', desc: 'File .cjs có nằm trong .claude/hooks/. Có file CHƯA nghĩa là hook đang chạy.' },
         { label: 'wired', desc: 'settings.json đã gắn script vào lifecycle event. Không wire thì Claude Code không gọi.' },
-        { label: 'runtime flag', desc: 'Khi đã được gọi, code đọc .ck.json / default / ENV để quyết có chạy tiếp không (vd: privacyBlock, simplify.gate.enabled).' },
+        { label: 'runtime flag', desc: 'Khi đã được gọi, code đọc .claude/settings.json / default / ENV để quyết có chạy tiếp không (vd: privacyBlock, simplify.gate.enabled).' },
       ],
       taxonomyNote:
         'isHookEnabled() chỉ tắt khi hooks.<name> là false. Key thiếu thường xem là enabled. Đừng gom mọi thứ thành "mặc định bật/tắt".',
@@ -154,7 +154,7 @@ const copy = currentLang === 'vi'
         'Và: không có rate-limit / quota guard. Agent mất kiểm soát có thể call hàng nghìn Read/Bash; giới hạn nằm ở Claude Code / provider / billing, không ở guard rail.',
       checklist: [
         'settings.json đang gắn hook nào vào lifecycle nào?',
-        '.ck.json đã disable hook nào? (cả outer + inner config)',
+        '.claude/settings.json đã disable hook nào? (cả outer + inner config)',
         'Session Claude Code hiện tại có đang bỏ qua permission prompt không?',
         'Có project .ckignore override không? node_modules có bị ! allowlist không?',
         'Rule files trong CLAUDE.md có đầy đủ không?',
@@ -164,7 +164,7 @@ const copy = currentLang === 'vi'
         'Snapshot theo Engineer Kit stable claudekit-engineer@2.19.1. Bản 2.19.2-beta đang chuẩn bị bỏ 2 hook Agent Teams, nên danh sách hook có thể đổi khi upstream release version mới.',
       hooksCtaText: 'Xem chi tiết từng hook trong guide Custom Hooks',
       readMoreText:
-        'Đọc bản đầy đủ với bản đồ Vit Engine hooks theo lifecycle, snippet settings.json / .ck.json, cơ chế từng hook và phân tích sâu các gap →',
+        'Đọc bản đầy đủ với bản đồ Vit Engine hooks theo lifecycle, snippet .claude/settings.json, cơ chế từng hook và phân tích sâu các gap →',
       readMoreCta: 'Đọc bài viết đầy đủ',
     }
   : {
@@ -280,13 +280,13 @@ const copy = currentLang === 'vi'
           name: 'workflow-artifact-gate',
           tone: 'violet',
           problem: 'Checks 5 JSON files (context, risk, verification, review, adversarial) before ship/push/pr/deploy.',
-          gap: 'The strongest gate, but MUST be opted in: wire it in settings.json + enable it in .ck.json.',
+          gap: 'The strongest gate, but MUST be opted in: wire it in settings.json + enable it in .claude/settings.json.',
         },
       ],
       taxonomy: [
         { label: 'script file', desc: 'A .cjs file exists in .claude/hooks/. Having the file does NOT mean the hook is running.' },
         { label: 'wired', desc: 'settings.json has attached the script to a lifecycle event. Not wired, Claude Code never calls it.' },
-        { label: 'runtime flag', desc: 'Once invoked, code reads .ck.json / default / ENV to decide whether to proceed (e.g. privacyBlock, simplify.gate.enabled).' },
+        { label: 'runtime flag', desc: 'Once invoked, code reads .claude/settings.json / default / ENV to decide whether to proceed (e.g. privacyBlock, simplify.gate.enabled).' },
       ],
       taxonomyNote:
         'isHookEnabled() only turns off when hooks.<name> is false. A missing key is usually treated as enabled. Don\'t collapse everything into "on/off by default".',
@@ -304,7 +304,7 @@ const copy = currentLang === 'vi'
         'Also: there is no rate-limit / quota guard. A runaway agent can fire thousands of Read/Bash calls; limits live in Claude Code / provider / billing, not in this guard rail.',
       checklist: [
         'Which hooks does settings.json wire to which lifecycle?',
-        'Which hooks has .ck.json disabled? (both outer + inner config)',
+        'Which hooks has .claude/settings.json disabled? (both outer + inner config)',
         'Is the current Claude Code session skipping permission prompts?',
         'Any project .ckignore override? Is node_modules ! allowlisted?',
         'Are the rule files in CLAUDE.md complete?',
@@ -314,7 +314,7 @@ const copy = currentLang === 'vi'
         'Snapshot of Engineer Kit stable claudekit-engineer@2.19.1. The 2.19.2-beta is preparing to drop 2 Agent Teams hooks, so the hook list may change when upstream ships a new version.',
       hooksCtaText: 'See each hook in detail in the Custom Hooks guide',
       readMoreText:
-        'Read the full version with the Vit Engine hooks lifecycle map, settings.json / .ck.json snippets, per-hook mechanics, and a deep analysis of the gaps →',
+        'Read the full version with the Vit Engine hooks lifecycle map, .claude/settings.json snippets, per-hook mechanics, and a deep analysis of the gaps →',
       readMoreCta: 'Read full article',
     };
 

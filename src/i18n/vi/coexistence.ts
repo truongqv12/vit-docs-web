@@ -43,7 +43,7 @@ export const coexistence = {
   'coexistence.conflict.intro':
     'Khi chạy `vit init` trong project đã có Claude Code config, Vit Engine không bắt bạn chọn từng file một. Nó tự bảo vệ các file project config quan trọng, merge `settings.json`, và chỉ hỏi xác nhận nếu có file khác có nguy cơ bị ghi đè.',
   'coexistence.conflict.option.protectedConfig.label': 'Protected user config',
-  'coexistence.conflict.option.protectedConfig.behavior': 'Các file đã có như `.gitignore`, `.mcp.json`, `.ck.json`, `.ckignore`, `.repomixignore`, và `CLAUDE.md` được preserve. File project-local trong `.claude/` nhưng không thuộc kit cũng được scan và protect.',
+  'coexistence.conflict.option.protectedConfig.behavior': 'Các file đã có như `.gitignore`, `.mcp.json`, `.ckignore`, `.repomixignore`, và `CLAUDE.md` được preserve. File project-local trong `.claude/` nhưng không thuộc kit cũng được scan và protect.',
   'coexistence.conflict.option.protectedConfig.when': 'Default cho `vit init` và update thường.',
   'coexistence.conflict.option.settingsMerge.label': 'Selective settings merge',
   'coexistence.conflict.option.settingsMerge.behavior':

@@ -32,8 +32,8 @@ const accentMap: Record<string, { card: string; icon: string }> = {
 
 const dangerCodeClass = 'px-1.5 py-0.5 rounded-md bg-rose-50 dark:bg-rose-950/40 text-rose-700 dark:text-rose-300 border-rose-200 dark:border-rose-800/60 font-mono text-[0.9em] border whitespace-nowrap';
 const tldrHtml = renderInlineMarkdown(t('coexistence.hero.tldr'), 'emerald').replace(
-  /<code class="[^"]*">ck init --fresh<\/code>/,
-  `<code class="${dangerCodeClass}">ck init --fresh</code>`
+  /<code class="[^"]*">vit init --force --yes<\/code>/,
+  `<code class="${dangerCodeClass}">vit init --force --yes</code>`
 );
 ---
 

@@ -13,13 +13,13 @@ const t = useTranslations(lang);
 const totalCommands = cliCommandsCheatsheet.length;
 const categoryCount = new Set(cliCommandsCheatsheet.map(c => c.category)).size;
 const heroCommands = [
-  'ck init -g --kit engineer --yes',
-  'ck doctor --fix',
-  'ck migrate -a codex --dry-run',
+  'vit init --install-skills --yes',
+  'vit doctor',
+  'vit migrate',
 ];
 const isVi = lang === 'vi';
 const terminalPath = isVi ? '/vi/guides/cli-commands' : '/guides/cli-commands';
-const cliVersion = 'v4.4.0';
+const cliVersion = 'v1.5.3';
 ---
 
 <section class="relative overflow-hidden rounded-[2rem] border border-slate-200/80 bg-stone-50 shadow-sm dark:border-white/10 dark:bg-slate-950">
@@ -29,7 +29,7 @@ const cliVersion = 'v4.4.0';
       <div class="space-y-5">
         <div class="inline-flex items-center gap-2 rounded-full border border-teal-200 bg-white/70 px-3 py-1.5 text-xs font-bold uppercase tracking-[0.24em] text-teal-700 shadow-sm dark:border-teal-400/20 dark:bg-white/5 dark:text-teal-300">
           <span class="h-2 w-2 rounded-full bg-teal-500"></span>
-          {isVi ? 'Bảng điều khiển CK CLI' : 'CK CLI command deck'}
+          {isVi ? 'Bảng điều khiển Vit CLI' : 'Vit CLI command deck'}
         </div>
         <div class="max-w-2xl space-y-4">
           <h1 class="font-heading text-4xl font-bold tracking-[-0.045em] text-slate-950 sm:text-5xl lg:text-6xl dark:text-white">
@@ -102,11 +102,11 @@ const cliVersion = 'v4.4.0';
           <div class="grid grid-cols-2 gap-3">
             <a href="#cli-cat-setup" class="min-h-[84px] rounded-[1.15rem] border border-slate-200 bg-slate-50 p-3.5 transition hover:border-teal-300 hover:bg-teal-50/60 dark:border-white/10 dark:bg-white/[0.04] dark:hover:border-teal-300/40 dark:hover:bg-white/[0.07]">
               <span class="block text-xs uppercase tracking-[0.2em] text-slate-500 dark:text-slate-500">setup</span>
-              <span class="mt-2 block font-mono text-sm text-teal-700 dark:text-teal-200">ck new/init</span>
+              <span class="mt-2 block font-mono text-sm text-teal-700 dark:text-teal-200">vit init</span>
             </a>
             <a href="#cli-cat-workflow" class="min-h-[84px] rounded-[1.15rem] border border-slate-200 bg-slate-50 p-3.5 transition hover:border-amber-300 hover:bg-amber-50/60 dark:border-white/10 dark:bg-white/[0.04] dark:hover:border-amber-300/40 dark:hover:bg-white/[0.07]">
               <span class="block text-xs uppercase tracking-[0.2em] text-slate-500 dark:text-slate-500">workflow</span>
-              <span class="mt-2 block font-mono text-sm text-amber-700 dark:text-amber-200">ck plan</span>
+              <span class="mt-2 block font-mono text-sm text-amber-700 dark:text-amber-200">vit plan</span>
             </a>
           </div>
         </div>

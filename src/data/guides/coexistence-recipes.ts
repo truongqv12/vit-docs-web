@@ -96,7 +96,7 @@ export const conflictOptions: ConflictOption[] = [
   },
 ];
 
-// Section D — `ck migrate` provider examples.
+// Section D — `vit migrate` provider examples.
 // Source: reference/claudekit-cli/src/commands/portable/provider-registry.ts.
 export const migrateProviders: MigrateProvider[] = [
   {
