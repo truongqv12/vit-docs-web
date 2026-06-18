@@ -246,10 +246,11 @@ const inlineCode = 'rounded border border-slate-200 bg-slate-100 px-1.5 py-0.5 f
         </article>
       </div>
 
-      <a href={translatePath('/guides/codex-app')} class="group mt-4 flex min-h-12 items-center justify-between gap-4 rounded-xl border border-cyan-200 bg-white px-4 py-3 text-sm font-bold text-cyan-800 transition hover:border-cyan-300 hover:bg-cyan-50/70 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-cyan-300 dark:border-cyan-500/30 dark:bg-slate-950/60 dark:text-cyan-200 dark:hover:border-cyan-400/50 dark:hover:bg-cyan-500/10">
+      <!-- /guides/codex-app đã bị gỡ — thay bằng ide-config -->
+      <a href={translatePath('/guides/ide-config')} class="group mt-4 flex min-h-12 items-center justify-between gap-4 rounded-xl border border-cyan-200 bg-white px-4 py-3 text-sm font-bold text-cyan-800 transition hover:border-cyan-300 hover:bg-cyan-50/70 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-cyan-300 dark:border-cyan-500/30 dark:bg-slate-950/60 dark:text-cyan-200 dark:hover:border-cyan-400/50 dark:hover:bg-cyan-500/10">
         <span class="inline-flex min-w-0 items-center gap-2">
           <Link2 class="h-4 w-4 shrink-0" stroke-width={2.2} />
-          <span class="min-w-0">{t('Need Codex App + CLIProxyAPI setup first?', 'Cần setup Codex App + CLIProxyAPI trước?')}</span>
+          <span class="min-w-0">{t('Configure your IDE and editor settings', 'Cấu hình IDE và trình soạn thảo')}</span>
         </span>
         <ArrowRight class="h-4 w-4 shrink-0 transition group-hover:translate-x-0.5" stroke-width={2.2} />
       </a>

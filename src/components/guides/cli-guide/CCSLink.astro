@@ -8,7 +8,8 @@ interface Props {
 
 const { lang } = Astro.props;
 const t = useTranslations(lang);
-const ccsGuideUrl = lang === 'vi' ? '/vi/guides/ccs' : '/guides/ccs';
+// trang /guides/ccs đã bị gỡ — redirect về coexistence (gần nhất về chủ đề đa tài khoản)
+const ccsGuideUrl = lang === 'vi' ? '/vi/guides/coexistence' : '/guides/coexistence';
 ---
 
 <div class="glass-card rounded-xl border-amber-200 dark:border-amber-500/30 overflow-hidden hover:shadow-lg transition-all duration-300 group">

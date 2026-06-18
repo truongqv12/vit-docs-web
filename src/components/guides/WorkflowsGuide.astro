@@ -1,11 +1,11 @@
 ---
-// WorkflowsGuide - composition parent, delegates to sub-components
-import { engineerKitWorkflows as engineerWorkflowsEn, marketingKitWorkflows as marketingWorkflowsEn } from '@/data/guides/workflows';
-import { engineerKitWorkflows as engineerWorkflowsVi, marketingKitWorkflows as marketingWorkflowsVi } from '@/data/vi/guides/workflows';
+// WorkflowsGuide - thành phần tổng hợp, chỉ hiển thị Engineer Kit
+// Marketing Kit đã bị gỡ theo yêu cầu prune P3
+import { engineerKitWorkflows as engineerWorkflowsEn } from '@/data/guides/workflows';
+import { engineerKitWorkflows as engineerWorkflowsVi } from '@/data/vi/guides/workflows';
 import { getLangFromUrl, type Language } from '@/i18n';
 import WorkflowsHeaderAndVersionToggle from './workflows/workflows-header-and-version-toggle.astro';
 import WorkflowsEngineerSection from './workflows/workflows-engineer-section.astro';
-import WorkflowsMarketingSection from './workflows/workflows-marketing-section.astro';
 import WorkflowsProTipsAndNavigation from './workflows/workflows-pro-tips-and-navigation.astro';
 
 interface Props {
@@ -16,7 +16,6 @@ const { lang } = Astro.props;
 const currentLang = lang || getLangFromUrl(Astro.url);
 
 const engineerWorkflows = currentLang === 'vi' ? (engineerWorkflowsVi || engineerWorkflowsEn) : engineerWorkflowsEn;
-const marketingWorkflows = currentLang === 'vi' ? (marketingWorkflowsVi || marketingWorkflowsEn) : marketingWorkflowsEn;
 ---
 
 <style>
@@ -38,51 +37,4 @@ const marketingWorkflows = currentLang === 'vi' ? (marketingWorkflowsVi || marke
     <WorkflowsProTipsAndNavigation lang={currentLang} />
   </div>
 
-  <!-- Marketing Kit Content -->
-  <div id="wf-marketing-content" class="hidden">
-    <WorkflowsMarketingSection workflows={marketingWorkflows} lang={currentLang} />
-    <WorkflowsProTipsAndNavigation lang={currentLang} />
-  </div>
 </div>
-
-<script>
-  // Kit toggle functionality for workflows (Engineer / Marketing)
-  document.addEventListener('DOMContentLoaded', () => {
-    const btnEngineer = document.getElementById('wf-btn-engineer');
-    const btnMarketing = document.getElementById('wf-btn-marketing');
-    const engineerContent = document.getElementById('wf-engineer-content');
-    const marketingContent = document.getElementById('wf-marketing-content');
-
-    if (!btnEngineer || !btnMarketing || !engineerContent || !marketingContent) return;
-
-    const activeClasses = 'bg-teal-500 text-white shadow-sm';
-    const inactiveClasses = 'text-slate-600 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-700';
-    const activeMarketingClasses = 'bg-purple-500 text-white shadow-sm';
-
-    function setKit(kit: 'engineer' | 'marketing') {
-      if (kit === 'engineer') {
-        engineerContent.classList.remove('hidden');
-        marketingContent.classList.add('hidden');
-        btnEngineer.className = `wf-version-btn px-3 py-1.5 rounded-md text-sm font-medium transition-all duration-200 ${activeClasses}`;
-        btnMarketing.className = `wf-version-btn px-3 py-1.5 rounded-md text-sm font-medium transition-all duration-200 ${inactiveClasses}`;
-      } else {
-        engineerContent.classList.add('hidden');
-        marketingContent.classList.remove('hidden');
-        btnMarketing.className = `wf-version-btn px-3 py-1.5 rounded-md text-sm font-medium transition-all duration-200 ${activeMarketingClasses}`;
-        btnEngineer.className = `wf-version-btn px-3 py-1.5 rounded-md text-sm font-medium transition-all duration-200 ${inactiveClasses}`;
-      }
-      localStorage.setItem('workflows-kit', kit);
-    }
-
-    // Load saved preference (migrate old keys)
-    const savedKit = localStorage.getItem('workflows-kit') || localStorage.getItem('workflows-version');
-    if (savedKit === 'engineer' || savedKit === 'stable' || savedKit === 'v25') {
-      setKit('engineer');
-    } else if (savedKit === 'marketing' || savedKit === 'beta' || savedKit === 'v24') {
-      setKit('marketing');
-    }
-
-    btnEngineer.addEventListener('click', () => setKit('engineer'));
-    btnMarketing.addEventListener('click', () => setKit('marketing'));
-  });
-</script>

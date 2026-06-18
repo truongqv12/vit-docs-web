@@ -22,6 +22,8 @@ export default defineConfig({
     }
   },
   redirects: {
+    // Trang chủ chuyển hướng sang Guides — không còn landing marketing
+    '/': '/guides',
     // Redirect các URL cũ về URL mới
     '/guides/resume': '/guides/session-recovery',
     '/guides/mobile-coding': '/guides/remote-control'

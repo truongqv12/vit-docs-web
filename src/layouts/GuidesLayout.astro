@@ -9,12 +9,10 @@ interface Props {
   title: string;
   description: string;
   canonicalPath?: string;
+  // Chỉ các tab trang còn tồn tại sau prune P3
   activeTab:
     | 'index'
     | 'cli'
-    | 'ccs'
-    | 'ck-with-codex'
-    | 'codex-app'
     | 'remote-control'
     | 'ide-config'
     | 'coexistence'
@@ -26,8 +24,6 @@ interface Props {
     | 'session-recovery'
     | 'permissions'
     | 'hooks'
-    | 'promotions'
-    | 'donate'
     | 'what-is-claudekit'
     | 'fix-logs'
     | 'migrate'
@@ -37,9 +33,7 @@ interface Props {
     | 'inside-claudekit-plan-modes'
     | 'inside-claudekit-frontend-design'
     | 'inside-claudekit-getting-started'
-    | 'inside-claudekit-guard-rails'
-    | 'deals'
-    | 'lucky-draw';
+    | 'inside-claudekit-guard-rails';
   lang?: Language;
 }
 
@@ -53,7 +47,8 @@ const isInsideClaudeKitArticle = [
   'inside-claudekit-guard-rails',
 ].includes(activeTab);
 const showSidebar = !isInsideClaudeKitArticle;
-const isWideSidebarGuide = activeTab === 'codex-app';
+// codex-app đã bị gỡ; không còn trang nào cần wide sidebar
+const isWideSidebarGuide = false;
 ---
 
 <MainLayout

@@ -604,9 +604,10 @@ const migrationPhases = [
         <div class="font-semibold text-violet-600 dark:text-violet-400 text-sm mb-1 group-hover:underline">{t('IDE Config Guide', 'Hướng dẫn Cấu hình IDE')}</div>
         <p class="text-xs text-slate-500 dark:text-slate-500">{t('Configure VS Code to use alternative providers', 'Cấu hình VS Code dùng provider thay thế')}</p>
       </a>
-      <a href={translatePath('/guides/ccs')} class="p-4 rounded-xl bg-white dark:bg-slate-900/50 border border-slate-200 dark:border-slate-700 hover:border-violet-300 dark:hover:border-violet-500/30 transition-colors group">
-        <div class="font-semibold text-violet-600 dark:text-violet-400 text-sm mb-1 group-hover:underline">{t('CCS Guide', 'Hướng dẫn CCS')}</div>
-        <p class="text-xs text-slate-500 dark:text-slate-500">{t('Switch providers on-the-fly from the terminal', 'Chuyển đổi provider từ terminal')}</p>
+      <!-- /guides/ccs đã bị gỡ — thay bằng coexistence -->
+      <a href={translatePath('/guides/coexistence')} class="p-4 rounded-xl bg-white dark:bg-slate-900/50 border border-slate-200 dark:border-slate-700 hover:border-violet-300 dark:hover:border-violet-500/30 transition-colors group">
+        <div class="font-semibold text-violet-600 dark:text-violet-400 text-sm mb-1 group-hover:underline">{t('Coexistence Guide', 'Hướng dẫn Coexistence')}</div>
+        <p class="text-xs text-slate-500 dark:text-slate-500">{t('Run multiple AI tools side by side', 'Chạy song song nhiều công cụ AI')}</p>
       </a>
     </div>
   </div>

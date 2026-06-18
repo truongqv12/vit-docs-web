@@ -1,34 +1,18 @@
+// navigation.ts — link điều hướng sau prune P3
+// Tất cả link marketing/anchor (#hero/#features/#pricing/#waitlist) đã bị gỡ
+
 export const navLinks = [
-  { label: 'Home', href: '#hero' },
-  { label: 'Features', href: '#features' },
-  { label: 'Pricing', href: '#pricing' },
-  { label: 'ClaudeKit', href: '#claudekit' },
-  { label: 'Commands', href: '#commands' }
+  { label: 'Guides', href: '/guides' },
 ];
 
 export const footerLinks = {
-  product: [
-    { label: 'Features', href: '#features' },
-    { label: 'Pricing', href: '#pricing' },
-    { label: 'Commands', href: '#commands' },
-    { label: 'Waitlist', href: '#waitlist' }
+  guides: [
+    { label: 'Hướng dẫn', href: '/guides' },
+    { label: 'CLI', href: '/guides/cli' },
+    { label: 'Commands', href: '/guides/commands' },
+    { label: 'Workflows', href: '/guides/workflows' },
   ],
-  resources: [
-    { label: 'Documentation', href: '/docs' },
-    { label: 'Guides', href: '/guides' },
-    { label: 'API Reference', href: '/api' },
-    { label: 'Examples', href: '/examples' }
+  community: [
+    { label: 'Discord', href: 'https://claudekit.cc/discord' },
   ],
-  company: [
-    { label: 'About', href: '/about' },
-    { label: 'Blog', href: '/blog' },
-    { label: 'Careers', href: '/careers' },
-    { label: 'Contact', href: '/contact' }
-  ],
-  legal: [
-    { label: 'Privacy', href: '/privacy' },
-    { label: 'Terms', href: '/terms' },
-    { label: 'Cookies', href: '/cookies' },
-    { label: 'License', href: '/license' }
-  ]
 };

@@ -1,6 +1,7 @@
 ---
 // Guides landing page with guided pathways for different user types
-import { Rocket, Workflow, CircleHelp, Zap, BookOpenText, Cog, Layers, ShieldCheck, BadgePercent } from 'lucide-astro';
+// BadgePercent đã bị gỡ cùng với section promotions (prune P3)
+import { Rocket, Workflow, CircleHelp, Zap, BookOpenText, Cog, Layers, ShieldCheck } from 'lucide-astro';
 import GuidedPathwayCard from './guides-home/guided-pathway-card.astro';
 import { useTranslations } from '@/i18n/utils';
 import { getLangFromUrl, useTranslatedPath, type Language } from '@/i18n';
@@ -61,11 +62,9 @@ const pathways = [
     descKey: 'guides.home.pathway_providers.desc',
     accentColor: 'purple' as const,
     links: [
-      { href: '/guides/ccs', labelKey: 'guides.home.pathway_providers.link_ccs' },
+      // ccs/codex-app/ck-with-codex đã bị gỡ theo prune P3 — chỉ giữ ide-config, remote-control, migrate
       { href: '/guides/ide-config', labelKey: 'guides.home.pathway_environments.link_ide' },
       { href: '/guides/remote-control', labelKey: 'guides.home.pathway_environments.link_remote_control' },
-      { href: '/guides/codex-app', labelKey: 'guides.home.pathway_providers.link_codex_app' },
-      { href: '/guides/ck-with-codex', labelKey: 'guides.home.pathway_providers.link_codex' },
       { href: '/guides/migrate', labelKey: 'guides.home.pathway_providers.link_migrate' },
     ],
   },
@@ -110,39 +109,6 @@ const pathways = [
       />
     ))}
   </div>
-
-  <section class="relative overflow-hidden rounded-2xl border border-amber-200/70 bg-gradient-to-br from-amber-50 via-white to-orange-50/60 p-5 shadow-sm dark:border-amber-500/20 dark:from-amber-950/30 dark:via-slate-900/70 dark:to-orange-950/20">
-    <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(245,158,11,0.12),transparent_40%)] dark:bg-[radial-gradient(circle_at_top_right,rgba(251,191,36,0.10),transparent_40%)]"></div>
-    <div class="relative flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-      <div class="flex items-start gap-4">
-        <div class="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-amber-500 to-orange-600 text-white shadow-md shadow-amber-500/25">
-          <BadgePercent class="h-5 w-5" />
-        </div>
-        <div class="space-y-1">
-          <div class="flex flex-wrap items-center gap-2">
-            <h2 class="text-base font-semibold text-slate-900 dark:text-white">
-              {t('guides.home.promotions.title')}
-            </h2>
-            <span class="inline-flex items-center rounded-full bg-amber-100 px-2 py-0.5 text-[11px] font-semibold uppercase tracking-wide text-amber-700 dark:bg-amber-500/15 dark:text-amber-300">
-              {t('guides.home.promotions.badge')}
-            </span>
-          </div>
-          <p class="text-xs font-medium uppercase tracking-[0.12em] text-amber-600/90 dark:text-amber-400/90">
-            {t('guides.home.promotions.kicker')}
-          </p>
-          <p class="max-w-2xl pt-0.5 text-sm leading-relaxed text-slate-600 dark:text-slate-400">
-            {t('guides.home.promotions.desc')}
-          </p>
-        </div>
-      </div>
-      <a
-        href={translatePath('/guides/promotions')}
-        class="inline-flex min-h-10 shrink-0 items-center justify-center rounded-lg bg-gradient-to-br from-amber-500 to-orange-600 px-4 text-sm font-semibold text-white shadow-sm shadow-amber-500/25 transition hover:from-amber-600 hover:to-orange-700 hover:shadow-md hover:shadow-amber-500/30"
-      >
-        {t('guides.home.promotions.cta')}
-      </a>
-    </div>
-  </section>
 
   <!-- Deep Dives: foundational internals (How ClaudeKit Works + future deep dives) -->
   <section class="relative overflow-hidden rounded-3xl border border-slate-200/70 bg-gradient-to-br from-slate-50 via-white to-teal-50/50 p-6 md:p-8 dark:border-slate-800 dark:from-slate-950 dark:via-slate-950 dark:to-teal-950/30">
