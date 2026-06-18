@@ -5,13 +5,6 @@ import tailwindcss from '@tailwindcss/vite';
 // https://astro.build/config
 export default defineConfig({
   output: 'static',
-  i18n: {
-    defaultLocale: 'en',
-    locales: ['en', 'vi'],
-    routing: {
-      prefixDefaultLocale: false // English at /, Vietnamese at /vi/
-    }
-  },
   vite: {
     plugins: [tailwindcss()],
     build: {
@@ -29,9 +22,8 @@ export default defineConfig({
     }
   },
   redirects: {
+    // Redirect các URL cũ về URL mới
     '/guides/resume': '/guides/session-recovery',
-    '/vi/guides/resume': '/vi/guides/session-recovery',
-    '/guides/mobile-coding': '/guides/remote-control',
-    '/vi/guides/mobile-coding': '/vi/guides/remote-control'
+    '/guides/mobile-coding': '/guides/remote-control'
   }
 });

@@ -1,32 +1,21 @@
+// Ngôn ngữ duy nhất được hỗ trợ: Tiếng Việt
 export const languages = {
-  en: 'English',
   vi: 'Tiếng Việt'
 };
 
-export const defaultLang = 'en';
+export const defaultLang = 'vi';
 
+// Chỉ còn 1 ngôn ngữ — kiểu Language luôn là 'vi'
 export type Language = keyof typeof languages;
 
-export function getLangFromUrl(url: URL): Language {
-  const [, lang] = url.pathname.split('/');
-  if (lang in languages) return lang as Language;
-  return defaultLang;
+// getLangFromUrl luôn trả 'vi' vì không còn prefix locale
+export function getLangFromUrl(_url: URL): Language {
+  return 'vi';
 }
 
-export function useTranslatedPath(lang: Language) {
-  return function translatePath(path: string, l: Language = lang) {
-    // Strip existing language prefix if present
-    let cleanPath = path;
-    for (const langCode of Object.keys(languages)) {
-      if (path.startsWith(`/${langCode}/`)) {
-        cleanPath = path.slice(langCode.length + 1);
-        break;
-      } else if (path === `/${langCode}`) {
-        cleanPath = '/';
-        break;
-      }
-    }
-
-    return l === defaultLang ? cleanPath : `/${l}${cleanPath}`;
+// useTranslatedPath là no-op: trả nguyên path vì không còn prefix /vi/
+export function useTranslatedPath(_lang: Language) {
+  return function translatePath(path: string, _l: Language = 'vi'): string {
+    return path;
   };
 }

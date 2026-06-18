@@ -4,7 +4,7 @@ import CoexistenceGuide from '@/components/guides/CoexistenceGuide.astro';
 import { useTranslations } from '@/i18n/utils';
 import type { Language } from '@/i18n';
 
-const lang: Language = 'en';
+const lang: Language = 'vi';
 const t = useTranslations(lang);
 ---
 
@@ -13,5 +13,5 @@ const t = useTranslations(lang);
   description={t('coexistence.hero.tldr')}
   activeTab="coexistence"
 >
-  <CoexistenceGuide lang="en" />
+  <CoexistenceGuide lang="vi" />
 </GuidesLayout>

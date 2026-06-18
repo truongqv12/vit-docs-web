@@ -10,32 +10,34 @@ import Pricing from '@/components/sections/Pricing.astro';
 import ClaudeKit from '@/components/sections/ClaudeKit.astro';
 import Commands from '@/components/sections/Commands.astro';
 import WaitlistForm from '@/components/sections/WaitlistForm.astro';
-import { SITE_CONFIG } from '@/data/constants';
+import { useTranslations } from '@/i18n/utils';
 import type { Language } from '@/i18n';
 
-const lang: Language = 'en';
+// Ngôn ngữ duy nhất: tiếng Việt
+const lang: Language = 'vi';
+const t = useTranslations(lang);
 ---
 
 <MainLayout
-  title={`${SITE_CONFIG.name} - ${SITE_CONFIG.tagline}`}
-  description={SITE_CONFIG.description}
+  title={t('site.title')}
+  description={t('site.description')}
   canonical="/"
-  lang="en"
+  lang="vi"
 >
   <AmbientBackground />
-  <Header lang="en" />
+  <Header lang="vi" />
 
   <main>
-    <Hero lang="en" />
-    <Problem lang="en" />
-    <Features lang="en" />
-    <Pricing lang="en" />
-    <ClaudeKit lang="en" />
-    <Commands lang="en" />
-    <WaitlistForm lang="en" />
+    <Hero lang="vi" />
+    <Problem lang="vi" />
+    <Features lang="vi" />
+    <Pricing lang="vi" />
+    <ClaudeKit lang="vi" />
+    <Commands lang="vi" />
+    <WaitlistForm lang="vi" />
   </main>
 
-  <Footer lang="en" />
+  <Footer lang="vi" />
 
   <script>
     import { initScrollAnimations } from '@/scripts/intersection-observer';
@@ -51,7 +53,7 @@ const lang: Language = 'en';
 
     window.Alpine = Alpine;
 
-    // Start Alpine
+    // Khởi động Alpine
     Alpine.start();
   </script>
 </MainLayout>

@@ -1,0 +1,18 @@
+# Caddy phục vụ site tĩnh vit-docs-web trong container.
+# Chỉ HTTP cổng 80 nội bộ — KHÔNG khai domain/TLS (nginx trên host lo reverse proxy + HTTPS).
+# Astro build dạng thư mục: /guides/cli/ -> /srv/guides/cli/index.html
+
+:80 {
+	root * /srv
+	encode gzip zstd
+
+	# Thử lần lượt: đúng file → thư mục có index.html → file .html → nếu không có thì trả 404 của site
+	try_files {path} {path}/index.html {path}.html
+	file_server
+
+	# Trang lỗi: dùng 404.html do Astro sinh
+	handle_errors {
+		rewrite * /404.html
+		file_server
+	}
+}

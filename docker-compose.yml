@@ -1,0 +1,12 @@
+# Docker Compose cho vit-docs-web — web tài liệu tĩnh, đứng sau nginx của host.
+# Đổi port bằng biến HOST_PORT (mặc định 8080), không cần rebuild image.
+# nginx host trỏ domain về http://127.0.0.1:${HOST_PORT}.
+
+services:
+  vit-docs-web:
+    build: .
+    image: vit-docs-web:latest
+    container_name: vit-docs-web
+    restart: unless-stopped
+    ports:
+      - "${HOST_PORT:-8080}:80"

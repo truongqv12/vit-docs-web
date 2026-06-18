@@ -1,15 +1,16 @@
-import en from './en';
+// Chỉ import vi — en đã bị gỡ
 import vi from './vi';
 
+// Chỉ còn bản dịch tiếng Việt
 export const translations = {
-  en,
   vi
 } as const;
 
-export type TranslationKey = keyof typeof en;
+export type TranslationKey = keyof typeof vi;
 
-export function useTranslations(lang: keyof typeof translations = 'en') {
+// useTranslations luôn dùng vi, tham số lang giữ để không vỡ caller
+export function useTranslations(_lang: keyof typeof translations = 'vi') {
   return function t(key: TranslationKey): string {
-    return translations[lang][key] || translations['en'][key];
+    return vi[key] ?? '';
   };
 }
