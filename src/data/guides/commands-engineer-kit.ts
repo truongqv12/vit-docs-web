@@ -125,6 +125,14 @@ export function getEngineerKitCategories(t: TranslationFn): CommandCategory[] {
           isSkill: true,
         },
         {
+          command: "/vit:prompt-leverage",
+          complexity: "⚡⚡",
+          label: t("commands.label.medium"),
+          desc: t("commands.stable.prompt_leverage.desc"),
+          detail: t("commands.stable.prompt_leverage.detail"),
+          isSkill: true,
+        },
+        {
           command: "/vit:loop",
           complexity: "⚡⚡⚡",
           label: t("commands.label.medium"),
@@ -776,14 +784,6 @@ export function getEngineerKitCategories(t: TranslationFn): CommandCategory[] {
           detail: t("commands.stable.project_management.detail"),
           isSkill: true,
           flags: ["status", "hydrate", "sync", "report"],
-        },
-        {
-          command: "/vit:plans-kanban",
-          complexity: "⚡",
-          label: t("commands.label.easy"),
-          desc: t("commands.stable.plans_kanban.desc"),
-          detail: t("commands.stable.plans_kanban.detail"),
-          isSkill: true,
         },
         {
           command: "/vit:project-organization",

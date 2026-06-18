@@ -4514,6 +4514,81 @@ export const workflowScenarios: WorkflowScenario[] = [
     ],
   },
 
+  // ─── /vit:prompt-leverage — Prompt Leverage ─────────────────────────────
+  {
+    id: 'prompt-leverage',
+    command: '/vit:prompt-leverage',
+    kit: 'engineer',
+    titleEn: 'Prompt Leverage',
+    titleVi: 'Prompt Leverage',
+    descEn: 'Strengthen a raw prompt into an execution-ready instruction set for an AI agent.',
+    descVi: 'Nâng cấp prompt thô thành bộ chỉ thị execution-ready cho AI agent — cải thiện prompt sẵn có, dựng framework prompt tái dùng, thêm tool rules rõ ràng, hoặc tạo hook nâng cấp prompt trước khi chạy.',
+    icon: '<path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/>',
+    accentColor: 'violet',
+    steps: [
+      {
+        id: 'pl-input',
+        type: 'user-input',
+        name: '/vit:prompt-leverage',
+        descEn: 'Paste or describe the raw prompt you want to improve',
+        descVi: 'Dán hoặc mô tả prompt thô bạn muốn cải thiện',
+        explainEn: '/vit:prompt-leverage nhận prompt thô và output mode bạn muốn.\n\nOutput modes:\n• inline upgrade — trả prompt cải tiến ngay trong chat.\n• upgrade+rationale — prompt cải tiến kèm giải thích từng thay đổi.\n• template extraction — tách framework tái sử dụng từ prompt cụ thể.\n• hook spec — tạo spec hook nâng cấp prompt trước khi chạy.\n\nNếu không chỉ mode, skill hỏi mục tiêu trước khi đề xuất.',
+        explainVi: '/vit:prompt-leverage nhận prompt thô và output mode bạn muốn.\n\nOutput modes:\n• inline upgrade — trả prompt cải tiến ngay trong chat.\n• upgrade+rationale — prompt cải tiến kèm giải thích từng thay đổi.\n• template extraction — tách framework tái sử dụng từ prompt cụ thể.\n• hook spec — tạo spec hook nâng cấp prompt trước khi chạy.\n\nNếu không chỉ mode, skill hỏi mục tiêu trước khi đề xuất.',
+        codeSnippet: '> /vit:prompt-leverage "Fix the bug in the auth module"\n\n// Skill nhận dạng loại task và chọn framework blocks phù hợp\n// Kết quả: prompt execution-ready cho AI agent',
+        icon: '<polyline points=\'4 17 10 11 4 5\'/><line x1=\'12\' y1=\'19\' x2=\'20\' y2=\'19\'/>',
+        color: 'purple',
+      },
+      {
+        id: 'pl-hooks',
+        type: 'hook',
+        name: 'Context + Guardrails',
+        descEn: 'Project rules, coding standards, and active context are injected',
+        descVi: 'Quy tắc project, coding standards, và context hiện tại được inject',
+        explainEn: 'Hooks fire trước khi skill phân tích prompt:\n\n• UserPromptSubmit inject coding standards và active plan context để prompt cải tiến bám đúng dự án.\n• PreToolUse enforce scout-first và privacy checks khi cần đọc file làm ví dụ.\n• Skill rules cung cấp framework blocks và tool rule templates.',
+        explainVi: 'Hooks fire trước khi skill phân tích prompt:\n\n• UserPromptSubmit inject coding standards và active plan context để prompt cải tiến bám đúng dự án.\n• PreToolUse enforce scout-first và privacy checks khi cần đọc file làm ví dụ.\n• Skill rules cung cấp framework blocks và tool rule templates.',
+        codeSnippet: '// UserPromptSubmit → project context + coding standards\n// PreToolUse → scout/privacy guardrails\n// Framework blocks: Objective, Context, Work Style,\n//   Tool Rules, Output Contract, Verification, Done Criteria',
+        icon: '<path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>',
+        color: 'blue',
+      },
+      {
+        id: 'pl-analyze',
+        type: 'agent',
+        name: 'Đọc Prompt + Suy Luận Task Type',
+        descEn: 'Read the raw prompt and infer task type, missing blocks, and improvement targets',
+        descVi: 'Đọc prompt thô và suy luận loại task, các block còn thiếu, và mục tiêu cải thiện',
+        explainEn: 'Skill đọc toàn bộ prompt và xác định:\n\n• Loại task: implementation, debugging, research, planning, review, generation.\n• Framework blocks hiện có và còn thiếu trong Objective, Context, Work Style, Tool Rules, Output Contract, Verification, Done Criteria.\n• Phần mơ hồ hoặc thiếu ràng buộc có thể gây hiểu nhầm.\n• Tỉ lệ hợp lý (không thêm quá nhiều, giữ prompt ngắn gọn).',
+        explainVi: 'Skill đọc toàn bộ prompt và xác định:\n\n• Loại task: implementation, debugging, research, planning, review, generation.\n• Framework blocks hiện có và còn thiếu trong Objective, Context, Work Style, Tool Rules, Output Contract, Verification, Done Criteria.\n• Phần mơ hồ hoặc thiếu ràng buộc có thể gây hiểu nhầm.\n• Tỉ lệ hợp lý (không thêm quá nhiều, giữ prompt ngắn gọn).',
+        codeSnippet: '// Phân tích "Fix the bug in the auth module":\n//\n// Task type: debugging\n// Missing blocks:\n//   - Context: repo path, language, framework\n//   - Output Contract: file to change, expected behavior\n//   - Verification: test command or acceptance check\n//   - Done Criteria: definition of done\n//\n// Độ mơ hồ: HIGH — "bug" chưa được mô tả',
+        icon: '<circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>',
+        color: 'green',
+      },
+      {
+        id: 'pl-build',
+        type: 'agent',
+        name: 'Dựng Lại Bằng Framework Blocks',
+        descEn: 'Reconstruct the prompt using 7 framework blocks at the right ratio',
+        descVi: 'Dựng lại prompt dùng 7 framework blocks với tỉ lệ hợp lý',
+        explainEn: 'Skill dựng lại prompt dùng 7 blocks của framework:\n\n1. Objective — mục tiêu rõ ràng, một câu.\n2. Context — thông tin cần thiết: repo, stack, file liên quan.\n3. Work Style — cách agent nên làm việc (scout-first, step-by-step, tránh side-effect).\n4. Tool Rules — tool nào được phép dùng, tool nào bị cấm.\n5. Output Contract — kết quả cụ thể: file, format, endpoint.\n6. Verification — lệnh kiểm tra hoặc test để verify kết quả.\n7. Done Criteria — điều kiện hoàn thành rõ ràng.\n\nTỉ lệ được giữ hợp lý: không thêm block không cần thiết, không làm dài prompt vô ích.',
+        explainVi: 'Skill dựng lại prompt dùng 7 blocks của framework:\n\n1. Objective — mục tiêu rõ ràng, một câu.\n2. Context — thông tin cần thiết: repo, stack, file liên quan.\n3. Work Style — cách agent nên làm việc (scout-first, step-by-step, tránh side-effect).\n4. Tool Rules — tool nào được phép dùng, tool nào bị cấm.\n5. Output Contract — kết quả cụ thể: file, format, endpoint.\n6. Verification — lệnh kiểm tra hoặc test để verify kết quả.\n7. Done Criteria — điều kiện hoàn thành rõ ràng.\n\nTỉ lệ được giữ hợp lý: không thêm block không cần thiết, không làm dài prompt vô ích.',
+        codeSnippet: '// Prompt cải tiến:\n//\n// Objective: Tìm và sửa lỗi null check trong src/auth/session.ts\n// Context: TypeScript, Astro 5.x, session helper ở src/utils/session.ts\n// Work Style: Scout src/auth/* trước, đọc stack trace, KHÔNG sửa file ngoài auth/\n// Tool Rules: Read/Edit/Grep được phép; Write chỉ dùng nếu cần tạo file mới\n// Output Contract: File đã sửa + mô tả thay đổi\n// Verification: npm test src/auth\n// Done Criteria: Test auth pass 100%, không lỗi TypeScript',
+        icon: '<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/>',
+        color: 'amber',
+      },
+      {
+        id: 'pl-output',
+        type: 'output',
+        name: 'Trả Prompt Cải Tiến + Giải Thích',
+        descEn: 'Deliver the upgraded prompt and per-block rationale in the requested output mode',
+        descVi: 'Trả prompt cải tiến và giải thích từng block theo output mode đã chọn',
+        explainEn: 'Skill trả kết quả theo output mode:\n\n• inline upgrade — chỉ trả prompt cải tiến, không giải thích.\n• upgrade+rationale — trả prompt kèm giải thích tại sao từng block được thêm/thay đổi.\n• template extraction — tách framework tái dùng, thay phần cụ thể bằng placeholder.\n• hook spec — mô tả spec hook UserPromptSubmit có thể dùng để tự động nâng cấp prompt trước khi chạy.\n\nNếu prompt nguồn đã tốt, skill nói rõ và chỉ gợi ý cải tiện nhỏ thay vì rewrite toàn bộ.',
+        explainVi: 'Skill trả kết quả theo output mode:\n\n• inline upgrade — chỉ trả prompt cải tiến, không giải thích.\n• upgrade+rationale — trả prompt kèm giải thích tại sao từng block được thêm/thay đổi.\n• template extraction — tách framework tái dùng, thay phần cụ thể bằng placeholder.\n• hook spec — mô tả spec hook UserPromptSubmit có thể dùng để tự động nâng cấp prompt trước khi chạy.\n\nNếu prompt nguồn đã tốt, skill nói rõ và chỉ gợi ý cải tiện nhỏ thay vì rewrite toàn bộ.',
+        codeSnippet: '// Output mode: upgrade+rationale\n//\n// [PROMPT CẢI TIẾN]\n// Objective: ...\n// Context: ...\n// ...\n//\n// [GIẢI THÍCH]\n// + Context: thêm vì prompt gốc thiếu thông tin repo\n// + Verification: thêm lệnh test để agent tự kiểm tra\n// + Work Style: thêm scout-first để tránh edit sai file',
+        icon: '<path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/>',
+        color: 'purple',
+      },
+    ],
+  },
+
   // ─── /vit:problem-solving — Problem Solving ─────────────────────────────
   {
     id: 'problem-solving',
@@ -6410,81 +6485,6 @@ export const workflowScenarios: WorkflowScenario[] = [
   // ─── /vit:watzup — Watzup Commands ─────────────────────────────
 
   // ─── /vit:worktree — Worktree Commands ─────────────────────────────
-
-  // ─── /vit:plans-kanban — Plans Kanban ─────────────────────────────
-  {
-    id: 'plans-kanban',
-    command: '/vit:plans-kanban',
-    kit: 'engineer',
-    titleEn: 'Plans Kanban',
-    titleVi: 'Plans Kanban',
-    descEn: 'Planning board with progress tracking and timeline visualization',
-    descVi: 'Bảng kế hoạch với theo dõi tiến độ và hiển thị timeline.',
-    icon: '<path d="M12 2a10 10 0 0 0-7 17.12"/><path d="M12 2a10 10 0 0 1 7 17.12"/><path d="M2 12h20"/>',
-    accentColor: 'cyan',
-    steps: [
-      {
-        id: 'pk-input',
-        type: 'user-input',
-        name: '/vit:plans-kanban',
-        descEn: 'Open the workflow with an explicit dashboard or organization request',
-        descVi: 'Mở workflow với request dashboard hoặc tổ chức rõ ràng',
-        explainEn: '/vit:plans-kanban starts from a concrete project-management request. The user provides the plan, board, files, or organization target before the agent acts.',
-        explainVi: '/vit:plans-kanban bắt đầu từ request quản lý project cụ thể. User đưa plan, board, files, hoặc target tổ chức trước khi agent làm.',
-        codeSnippet: '> /vit:plans-kanban "review current project state"',
-        icon: '<polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/>',
-        color: 'purple'
-      },
-      {
-        id: 'pk-context',
-        type: 'hook',
-        name: 'Context + Permissions',
-        descEn: 'Load project rules, active plans, and workspace constraints',
-        descVi: 'Load project rules, active plans, và ràng buộc workspace',
-        explainEn: 'Hooks and repo instructions provide the current plan context, file boundaries, and permission rules before any dashboard or organization work begins.',
-        explainVi: 'Hooks và instruction repo cung cấp context plan hiện tại, boundary file, và permission rules trước khi làm dashboard hoặc organization.',
-        codeSnippet: '// active plan + workspace rules\n// privacy and file-access checks\n// no unrelated reorganization',
-        icon: '<path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>',
-        color: 'blue'
-      },
-      {
-        id: 'pk-audit',
-        type: 'agent',
-        name: 'Audit Current State',
-        descEn: 'Inspect plans, tasks, files, and existing structure',
-        descVi: 'Inspect plans, tasks, files, và cấu trúc hiện có',
-        explainEn: 'The agent reads the relevant project state before changing anything: plan metadata, task status, file locations, naming conventions, and current dashboard/server state.',
-        explainVi: 'Agent đọc trạng thái project liên quan trước khi đổi bất cứ thứ gì: metadata plan, task status, vị trí file, naming conventions, và dashboard/server state hiện tại.',
-        codeSnippet: '// inspect plans/ and docs/\n// check current task/status state\n// identify exact files or board route',
-        icon: '<circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>',
-        color: 'green'
-      },
-      {
-        id: 'pk-execute',
-        type: 'agent',
-        name: 'Execute Scoped Action',
-        descEn: 'Open, update, organize, or report only the requested surface',
-        descVi: 'Open, update, organize, hoặc report đúng surface được yêu cầu',
-        explainEn: 'Execution stays narrow: open the kanban dashboard, summarize project state, organize approved files, or produce a report. Broad cleanup requires explicit scope.',
-        explainVi: 'Execution giữ scope hẹp: mở kanban dashboard, tóm tắt trạng thái project, tổ chức files đã duyệt, hoặc tạo report. Cleanup rộng cần scope rõ.',
-        codeSnippet: '// perform requested action only\n// preserve unrelated files\n// report skipped or unavailable state',
-        icon: '<path d="M12 2a10 10 0 0 0-7 17.12"/><path d="M12 2a10 10 0 0 1 7 17.12"/><path d="M2 12h20"/>',
-        color: 'green'
-      },
-      {
-        id: 'pk-output',
-        type: 'output',
-        name: 'Report + Handoff',
-        descEn: 'Return visible state, changed paths, and next action',
-        descVi: 'Trả lại state nhìn thấy, paths đã đổi, và bước tiếp theo',
-        explainEn: 'The final output lists the dashboard URL or artifact paths, changed files if any, validation performed, and remaining unresolved questions.',
-        explainVi: 'Output cuối liệt kê dashboard URL hoặc artifact paths, files đã đổi nếu có, validation đã chạy, và câu hỏi còn mở.',
-        codeSnippet: '// output: URL/path + changed files + validation + unresolved questions',
-        icon: '<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/>',
-        color: 'amber'
-      }
-    ],
-  },
 
   // ─── /vit:project-organization — Project Organization ─────────────────────────────
   {
